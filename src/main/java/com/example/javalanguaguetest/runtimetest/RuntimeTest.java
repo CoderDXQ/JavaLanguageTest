@@ -23,12 +23,12 @@ public class RuntimeTest {
 
         try {
             //单纯的这两句不会输出执行结果
-            String[] cmd = new String[]{"/bin/sh", "-c", "ls -l"};
+            String[] cmd = new String[]{"/bin/sh", "-c", "ls -l"};//前两个字符串是linux下的必有函数
             Process ps = Runtime.getRuntime().exec(cmd);
 
             //拿取结果
-            BufferedReader br = new BufferedReader(new InputStreamReader(ps.getInputStream()));//输入流
-            StringBuffer sb = new StringBuffer();//池
+            BufferedReader br = new BufferedReader(new InputStreamReader(ps.getInputStream()));//获取子进程的输入流
+            StringBuffer sb = new StringBuffer();//缓冲池
             String line;
 
             while ((line = br.readLine()) != null) {
