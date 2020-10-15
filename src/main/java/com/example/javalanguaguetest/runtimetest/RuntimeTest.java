@@ -23,7 +23,7 @@ public class RuntimeTest {
 
         try {
             //单纯的这两句不会输出执行结果
-            String[] cmd = new String[]{"/bin/sh", "-c", "ls -l"};//前两个字符串是linux下的必有函数
+            String[] cmd = new String[]{"/bin/sh", "-c", "ls -l"};//前两个字符串是linux下的必有函数 这个命令在运行时不会造成阻塞 不需要使用waitFor()方法
             Process ps = Runtime.getRuntime().exec(cmd);
 
             //拿取结果
