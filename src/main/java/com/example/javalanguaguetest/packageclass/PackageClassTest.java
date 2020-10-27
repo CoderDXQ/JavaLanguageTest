@@ -8,7 +8,7 @@ package com.example.javalanguaguetest.packageclass;
 public class PackageClassTest {
     public static void main(String[] args) {
         System.out.println(Integer.max(5,10));
-
-        System.out.println(Runtime.getRuntime().availableProcessors());
+//查看可用的线程数
+    //    System.out.println(Runtime.getRuntime().availableProcessors());
     }
 }
