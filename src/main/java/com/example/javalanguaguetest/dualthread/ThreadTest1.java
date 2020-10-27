@@ -13,8 +13,7 @@ public class ThreadTest1 {
 
         //固定容量的线程池
         //线程池中固定五个线程执行任务
-/**
-        ExecutorService threadPool = Executors.newFixedThreadPool(5);//源码是LinkedBlockingQueue<Runnable>()
+/*        ExecutorService threadPool = Executors.newFixedThreadPool(5);//源码是LinkedBlockingQueue<Runnable>()
         try {
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
@@ -26,13 +25,12 @@ public class ThreadTest1 {
             e.printStackTrace();
         } finally {
             threadPool.shutdown();//关闭线程池
-        }
-**/
+        }*/
+
 
         //固定容量的线程池
         //线程池中固定五个线程执行任务
-        /**
-        ExecutorService threadPool = Executors.newFixedThreadPool(5);//源码是LinkedBlockingQueue<Runnable>()
+/*        ExecutorService threadPool = Executors.newFixedThreadPool(5);//源码是LinkedBlockingQueue<Runnable>()
         try {
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
@@ -45,8 +43,29 @@ public class ThreadTest1 {
             e.printStackTrace();
         } finally {
             threadPool.shutdown();//关闭线程池
+        }*/
+
+
+        //单例的线程池
+/*        ExecutorService threadPool = Executors.newSingleThreadExecutor();
+        try {
+            for (int i = 0; i < 10; i++) {
+                threadPool.execute(() -> {
+                    System.out.println(Thread.currentThread().getName() + "\t" + "办理业务");
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            threadPool.shutdown();
         }
-**/
+         */
+
+        //
+
+
+
+
 
     }
 }
