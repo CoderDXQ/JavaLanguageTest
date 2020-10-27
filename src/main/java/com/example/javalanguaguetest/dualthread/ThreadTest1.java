@@ -61,10 +61,31 @@ public class ThreadTest1 {
         }
          */
 
-        //
+        //可扩展的线程池
+        //线程池的工作流程：常驻线程先参与处理，常驻线程满了就放阻塞队列，阻塞队列满了就扩容线程数到最大，再满了就使用拒绝策略
+        //线程池支持的最大并发量应该是 最大线程数+阻塞队列容量，常驻线程（核心线程）包含于最大线程数
+        //调优技巧：如果程序是CPU密集型，可以设置最大线程数是cpu核心数+1即Runtime.getRuntime().availableProcessors()+1，以保证cpu的效率最高
+        //如果程序是IO密集型，应该考虑调小线程数以节约计算资源
+        ExecutorService threadPool = Executors.newCachedThreadPool();
 
+        try {
+            for (int i = 0; i < 10; i++) {
+                threadPool.execute(() -> {
+                    try {
+                        //通过控制下面这个时间可以控制线程池的开辟数量
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName() + "\t" + "办理业务");
 
-
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            threadPool.shutdown();
+        }
 
 
     }
