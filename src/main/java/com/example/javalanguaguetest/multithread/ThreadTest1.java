@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.dualthread;
+package com.example.javalanguaguetest.multithread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
