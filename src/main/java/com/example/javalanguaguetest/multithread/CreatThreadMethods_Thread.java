@@ -8,7 +8,7 @@ package com.example.javalanguaguetest.multithread;
 
 
 //通过扩展Thread类创建线程
-class MultithreadingDemo extends Thread {
+class MultithreadingDemo extends Thread {//继承Thread类
     public void run() {
         try {
             System.out.println("Thread" + Thread.currentThread().getId() + " is running");
@@ -24,7 +24,7 @@ public class CreatThreadMethods_Thread {
     public static void main(String[] args) {
         int n = 0;
         for (int i = 0; i < 8; i++) {
-            MultithreadingDemo object = new MultithreadingDemo();
+            MultithreadingDemo object = new MultithreadingDemo();//直接实例化继承Thread类的子类
             object.start();//会自动执行run()方法
         }
     }
