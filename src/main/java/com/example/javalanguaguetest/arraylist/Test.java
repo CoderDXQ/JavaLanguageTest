@@ -1,6 +1,7 @@
 package com.example.javalanguaguetest.arraylist;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -17,6 +18,13 @@ public class Test {
         List<String> list = Arrays.asList(array);//数组转化为list集合
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
+        }
+
+        System.out.println("\n");
+        //使用迭代器进行遍历
+        Iterator<String> ite = list.iterator();
+        while (ite.hasNext()) {
+            System.out.println(ite.next());
         }
     }
 }
