@@ -1,6 +1,7 @@
 package com.example.javalanguaguetest.extendstest;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @author Duan Xiangqing
@@ -35,4 +36,28 @@ public class Employee {
         double raise = salary * byPercent / 100;
         salary += raise;
     }
+
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null) return false;
+
+        if (getClass() != otherObject.getClass()) return false;
+
+        //强制类型转换
+        Employee other = (Employee) otherObject;
+
+        return Objects.equals(name, other.name) && salary == other.getSalary() && Objects.equals(hireDay, other.hireDay);
+
+    }
+
+    public int hashCode() {
+        return Objects.hash(name, salary, hireDay);
+    }
+
+    public String toString() {
+        return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay + "]";
+
+    }
+
+
 }

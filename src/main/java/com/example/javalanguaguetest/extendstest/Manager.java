@@ -27,4 +27,15 @@ public class Manager extends Employee {
     public void setBonus(double b) {
         bonus = b;
     }
+
+    public int hashCode() {
+        //相比于父类增加了一个字段 所有重写父类的哈希方法
+        return super.hashCode() + 17 * new Double(bonus).hashCode();
+    }
+
+    public String toString() {
+        //重写父类方法  在重写过程中调用父类方法
+        return super.toString() + "[bonus=" + bonus + "]";
+    }
+
 }
