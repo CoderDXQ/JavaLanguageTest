@@ -1,6 +1,4 @@
-package com.example.javalanguaguetest.reflect;
-
-import com.sun.tools.javac.code.Attribute;
+package com.example.javalanguaguetest.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
