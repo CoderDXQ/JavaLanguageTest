@@ -24,6 +24,7 @@ public class Employee {
     public Employee(String name, double salary, int year, int month, int day) {
         this.name = name;
         this.salary = salary;
+        //在构造方法中调用其他方法来进行构造
         this.setHireDay(year, month, day);
     }
 
