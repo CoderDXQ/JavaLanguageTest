@@ -29,9 +29,8 @@ public class Employee implements Cloneable {
 
         cloned.hireday = (Date) hireday.clone();
         System.out.println(cloned);
-        System.out.println("给cloned设置雇用时间");
-        cloned.setHireday(1999, 9, 9);
-        System.out.println(cloned);
+
+        cloned.setHireday(1999,9,9);
         System.out.println("***********************************************************************");
 
         return cloned;
