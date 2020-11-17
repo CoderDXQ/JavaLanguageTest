@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.arraytest;
+package com.example.javalanguaguetest.collections.arraytest;
 
 /**
  * @author Duan Xiangqing

@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.enumtest;
+package com.example.javalanguaguetest.collections.enumtest;
 
 import java.util.EnumSet;
 
