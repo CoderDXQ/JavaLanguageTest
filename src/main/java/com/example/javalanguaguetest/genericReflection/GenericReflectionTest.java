@@ -11,6 +11,7 @@ import java.util.Scanner;
  */
 public class GenericReflectionTest {
 
+    //可以输入com.example.javalanguaguetest.genericReflection.Pair或者java.util.Collections
     public static void main(String[] args) {
         String name;
         if (args.length > 0) name = args[0];
@@ -22,8 +23,10 @@ public class GenericReflectionTest {
         }
 
         try {
+            //获取类
             Class<?> cl = Class.forName(name);
             printClass(cl);
+            //遍历类里声明的方法 不管是不是public，只要声明了都可以（构造方法等方法除外）
             for (Method m : cl.getDeclaredMethods())
                 printMethdod(m);
         } catch (ClassNotFoundException e) {
@@ -33,26 +36,33 @@ public class GenericReflectionTest {
 
     public static void printClass(Class<?> cl) {
         System.out.print(cl);
+        //获取泛型变量参数
         printTypes(cl.getTypeParameters(), "<", ", ", ">", true);
+        //获取泛型继承超类
         Type sc = cl.getGenericSuperclass();
         if (sc != null) {
-            System.out.println(" extends ");
+            System.out.print(" extends ");
             printType(sc, false);
         }
-        printTypes(cl.getGenericInterfaces(), " implements", ", ", "", false);
+        //获取这个类型的接口的泛型类型
+        printTypes(cl.getGenericInterfaces(), " implements ", ", ", "", false);
         System.out.println();
     }
 
     public static void printMethdod(Method m) {
         String name = m.getName();
+        //打印方法的修饰符
         System.out.print(Modifier.toString(m.getModifiers()));
         System.out.print(" ");
+        //打印方法的变量参数
         printTypes(m.getTypeParameters(), "<", ", ", ">", true);
 
+        //获得泛型返回类型
         printType(m.getGenericReturnType(), false);
         System.out.print(" ");
         System.out.print(name);
         System.out.print("(");
+        //获得泛型参数类型
         printTypes(m.getGenericParameterTypes(), "", ", ", "", false);
         System.out.println(")");
     }
@@ -70,6 +80,7 @@ public class GenericReflectionTest {
     }
 
     public static void printType(Type type, boolean isDefinition) {
+        //判断参数类型然后输出
         if (type instanceof Class) {
             Class<?> t = (Class<?>) type;
             System.out.print(t.getName());

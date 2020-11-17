@@ -36,4 +36,8 @@ public class Pair<T> {
     public void setSecond(T second) {
         this.second = second;
     }
+
+    private String ret() {
+        return "hi";
+    }
 }
