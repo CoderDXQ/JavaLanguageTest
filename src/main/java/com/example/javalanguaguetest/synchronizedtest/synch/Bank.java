@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.synchronizedtest.unsynch;
+package com.example.javalanguaguetest.synchronizedtest.synch;
 
 import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
