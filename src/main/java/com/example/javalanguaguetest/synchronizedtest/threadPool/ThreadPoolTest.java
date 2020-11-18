@@ -1,8 +1,5 @@
 package com.example.javalanguaguetest.synchronizedtest.threadPool;
 
-
-import sun.nio.ch.ThreadPool;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,9 +23,11 @@ public class ThreadPoolTest {
             System.out.println("Enter keyword (e.g. volatile): ");
             String keyword = in.nextLine();
 
+            //定义一个线程池 全局都用这一个线程池
             ExecutorService pool = Executors.newCachedThreadPool();
 
             MatchCounter counter = new MatchCounter(new File(directory), keyword, pool);
+            //未来计算任务 用来捞某个线程的计算结果 规定返回值是Integer
             Future<Integer> result = pool.submit(counter);
 
             try {
