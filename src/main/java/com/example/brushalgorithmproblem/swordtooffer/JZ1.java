@@ -1,5 +1,7 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
+import com.sun.source.tree.BinaryTree;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -66,7 +68,7 @@ public class JZ1 {
         }
 
         public boolean Find2(int target, int[][] array) {
-            /*最优解法：从右上往左、下两个方向走。时间复杂度最大是n+m。
+            /*最优解法：从右上往左、下两个方向走。时间复杂度最大是n+m。从左下角走同理。
             好处：向左向下分别代表数值变化的两个方向。向下数值变大，向左数值变小。在这里就不需要考虑第一种方法里的回退情况。
             */
             if (array == null) return false;
@@ -97,43 +99,43 @@ public class JZ1 {
                 System.out.print("i=" + i);
                 int left = 0;
                 int right = array[i].length - 1;
-                int mid = array[i].length >> 1;
-                if (target < array[i][mid]) {
-                    System.out.println(BinarySearch(target, array[i], left, mid));
-//                    if(BinarySearch(target, array[i], left, mid)){
-//                        return true;
-//                    }
-                    //  return BinarySearch(target, array[i], left, mid);
-                } else if (target == array[i][mid]) {
-                    System.out.println("true");
-                    //  return true;
-                } else {
-                    System.out.println(BinarySearch(target, array[i], mid + 1, right));
-//                    if(BinarySearch(target, array[i], mid + 1, right)){
-//                        return true;
-//                    }
-                    //return BinarySearch(target, array[i], mid + 1, right);
-                }
+                System.out.println(BinarySearch(target, array[i], left, right));
             }
             System.out.println("false");
             return false;
         }
 
+//        public boolean BinarySearch(int target, int[] array, int left, int right) {
+//        递归实现二分查找
+//            int mid = (left + right) >> 1;
+//            if (target < array[mid]) {
+////                一定有等号
+//                if (left >= mid) return false;
+//                return BinarySearch(target, array, left, mid);
+//
+//            } else if (target == array[mid]) {
+//                return true;
+//            } else {
+////                一定有等号
+//                if (right <= mid + 1) return false;
+//                return BinarySearch(target, array, mid + 1, right);
+//            }
+//        }
+
         public boolean BinarySearch(int target, int[] array, int left, int right) {
-
             int mid = (left + right) >> 1;
-            if (target < array[mid]) {
-//                一定有等号
-                if (left >= mid) return false;
-                return BinarySearch(target, array, left, mid);
-
-            } else if (target == array[mid]) {
-                return true;
-            } else {
-//                一定有等号
-                if (right <= mid + 1) return false;
-                return BinarySearch(target, array, mid + 1, right);
+//            注意while循环的判断条件
+            while (left <= right) {
+                mid = (left + right) >> 1;
+                if (array[mid] < target) {
+                    left = mid + 1;
+                } else if (array[mid] > target) {
+                    right = mid - 1;
+                } else {
+                    return true;
+                }
             }
+            return false;
         }
 
         public boolean Find4(int target, int[][] array) {
