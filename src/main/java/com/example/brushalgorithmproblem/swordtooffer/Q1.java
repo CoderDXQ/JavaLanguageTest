@@ -1,6 +1,8 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
 
+import com.sun.source.tree.BinaryTree;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -23,8 +25,8 @@ public class Q1 {
         Solution s1 = new Solution();
         //    s1.Find1(target, array);
         //  s1.Find2(target, array);
-        //    s1.Find3(target, array);
-        s1.Find4(target, array);
+        s1.Find3(target, array);
+//        s1.Find4(target, array);
 
     }
 
@@ -71,6 +73,8 @@ public class Q1 {
             好处：向左向下分别代表数值变化的两个方向。向下数值变大，向左数值变小。在这里就不需要考虑第一种方法里的回退情况。
             */
             if (array == null) return false;
+//            排除array存在但为空的情况
+            if (array[0].length == 0) return false;
             int i = 0, j = array[0].length - 1;
             while (i <= array.length - 1 && j >= 0) {
                 if (target < array[i][j]) {
@@ -92,9 +96,47 @@ public class Q1 {
              * 在for循环中嵌套二分查找，有序数列就应该想到归并排序和二分查找
              * */
             if (array == null) return false;
-
-
+            for (int i = 0; i < array.length; i++) {
+                System.out.print("i=" + i);
+                int left = 0;
+                int right = array[i].length - 1;
+                int mid = array[i].length >> 1;
+                if (target < array[i][mid]) {
+                    System.out.println(BinarySearch(target, array[i], left, mid));
+//                    if(BinarySearch(target, array[i], left, mid)){
+//                        return true;
+//                    }
+                    //  return BinarySearch(target, array[i], left, mid);
+                } else if (target == array[i][mid]) {
+                    System.out.println("true");
+                    //  return true;
+                } else {
+                    System.out.println(BinarySearch(target, array[i], mid + 1, right));
+//                    if(BinarySearch(target, array[i], mid + 1, right)){
+//                        return true;
+//                    }
+                    //return BinarySearch(target, array[i], mid + 1, right);
+                }
+            }
+            System.out.println("false");
             return false;
+        }
+
+        public boolean BinarySearch(int target, int[] array, int left, int right) {
+
+            int mid = (left + right) >> 1;
+            if (target < array[mid]) {
+//                一定有等号
+                if (left >= mid) return false;
+                return BinarySearch(target, array, left, mid);
+
+            } else if (target == array[mid]) {
+                return true;
+            } else {
+//                一定有等号
+                if (right <= mid + 1) return false;
+                return BinarySearch(target, array, mid + 1, right);
+            }
         }
 
         public boolean Find4(int target, int[][] array) {
