@@ -15,7 +15,7 @@ public class JdbcTest {
             String name = "com.mysql.cj.jdbc.Driver";
             String url = "jdbc:mysql://localhost:3306/etc?characterEncoding=UTF-8&serverTimezone=UTC";
             String username = "root";
-            String password = "dxq5522565";
+            String password = "*********";
 
             //加载驱动类
             Class.forName(name);
