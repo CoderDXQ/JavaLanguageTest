@@ -10,7 +10,7 @@ import java.util.Stack;
  */
 public class JZ3 {
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next = null;
 

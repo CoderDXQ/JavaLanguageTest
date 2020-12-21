@@ -7,7 +7,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  */
 //快慢指针法
 public class JZ14 {
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next = null;
 
