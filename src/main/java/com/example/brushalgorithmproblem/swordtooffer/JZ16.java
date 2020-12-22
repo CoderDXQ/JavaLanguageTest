@@ -83,6 +83,7 @@ public class JZ16 {
         }
 //        好好理解一下
         if (list1.val <= list2.val) {
+//            递归返回list的头结点，那么接下来就要处理list1.next才能续上这个返回的链表
             list1.next = Merge1(list1.next, list2);
             return list1;
         } else {
