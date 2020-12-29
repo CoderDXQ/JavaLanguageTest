@@ -16,6 +16,19 @@ public class BasicPriorityLinkedList {
     protected int priorities;
     protected int size;
 
+    @Override
+    public String toString() {
+        System.out.println();
+        for (LinkedList l : linkedLists) {
+            System.out.println(l);
+        }
+        return "BasicPriorityLinkedList{" +
+                "linkedLists=" + Arrays.toString(linkedLists) +
+                ", priorities=" + priorities +
+                ", size=" + size +
+                '}';
+    }
+
     //    设置初始优先级 构造函数 构造函数不需要返回类型
     public BasicPriorityLinkedList(int priorities) {
         this.priorities = priorities;
@@ -25,6 +38,7 @@ public class BasicPriorityLinkedList {
     //在某个优先级的链表的前面添加元素
     public void addFirst(Object obj, int priority) {
         linkedLists[priority].addFirst(obj);
+
         size++;
     }
 
@@ -129,6 +143,27 @@ public class BasicPriorityLinkedList {
         private LinkedList[] lists;
         private int index;
         private ListIterator currentIter;
+
+        @Override
+        public String toString() {
+            return "PriorityLinkedListIterator{" +
+                    "lists=" + Arrays.toString(lists) +
+                    ", index=" + index +
+                    ", currentIter=" + currentIter +
+                    '}';
+        }
+
+        public LinkedList[] getLists() {
+            return lists;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public ListIterator getCurrentIter() {
+            return currentIter;
+        }
 
         // 初始化迭代器是优先级最高的子链表的迭代器
         PriorityLinkedListIterator(LinkedList[] lists) {
