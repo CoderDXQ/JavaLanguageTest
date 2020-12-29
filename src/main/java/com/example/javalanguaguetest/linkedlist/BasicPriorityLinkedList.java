@@ -201,6 +201,7 @@ public class BasicPriorityLinkedList {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
+            System.out.println(currentIter.next());
             return currentIter.next();
         }
 
