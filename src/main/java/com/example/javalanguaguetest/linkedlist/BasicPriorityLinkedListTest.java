@@ -76,24 +76,21 @@ public class BasicPriorityLinkedListTest {
         System.out.println("测试优先级链表迭代器：");
 
 //        内部类的实例化
+        basicPriorityLinkedList.addFirst("0", 0);
+        basicPriorityLinkedList.addFirst("1", 1);
+        basicPriorityLinkedList.addFirst("2", 2);
+        basicPriorityLinkedList.addFirst("3", 3);
+        basicPriorityLinkedList.addFirst("4", 4);
+        basicPriorityLinkedList.addFirst("0", 0);
+        basicPriorityLinkedList.addFirst("1", 1);
+        basicPriorityLinkedList.addFirst("2", 2);
+        basicPriorityLinkedList.addFirst("3", 3);
+        basicPriorityLinkedList.addFirst("4", 4);
+
+//        定义迭代器 这两个迭代器在使用上基本是等价的 因为迭代器是使用指针直接对内存进行操作的
         BasicPriorityLinkedList.PriorityLinkedListIterator iterator = (BasicPriorityLinkedList.PriorityLinkedListIterator) basicPriorityLinkedList.iterator();
         Iterator it = basicPriorityLinkedList.iterator();
-        System.out.println("迭代器：" + iterator.toString());
-
         System.out.println("hasNext():" + iterator.hasNext());
-        System.out.println("添加元素！");
-        basicPriorityLinkedList.addFirst("0", 0);
-        basicPriorityLinkedList.addFirst("1", 1);
-        basicPriorityLinkedList.addFirst("2", 2);
-        basicPriorityLinkedList.addFirst("3", 3);
-        basicPriorityLinkedList.addFirst("4", 4);
-        basicPriorityLinkedList.addFirst("0", 0);
-        basicPriorityLinkedList.addFirst("1", 1);
-        basicPriorityLinkedList.addFirst("2", 2);
-        basicPriorityLinkedList.addFirst("3", 3);
-        basicPriorityLinkedList.addFirst("4", 4);
-        System.out.println("hasNext():" + iterator.hasNext());
-        System.out.println();
 
         System.out.println(basicPriorityLinkedList);
         System.out.println();
@@ -102,18 +99,41 @@ public class BasicPriorityLinkedListTest {
         System.out.println(iterator);
         System.out.println();
 
-//        LinkedList l=(LinkedList) it.next();
-//        System.out.println(l);
-//        String s = (String) iterator.next();
-//        System.out.println(s);
+//        next()方法会使指针产生移动
+        String l = (String) it.next();
+        System.out.println(l);
+        System.out.println();
+
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
+        System.out.println();
+
+//        System.out.println(iterator.next());
+//        System.out.println(iterator.next());
+//        System.out.println(iterator.next());
+
         System.out.println("hasPrevious():" + iterator.hasPrevious());
-        //   System.out.println("previous():"+iterator.previous());
+        System.out.println("previous():" + iterator.previous());
         System.out.println("nextIndex():" + iterator.nextIndex());
         System.out.println("previousIndex():" + iterator.previousIndex());
         System.out.println();
 
-//        下面的方法会议hasNext()方法冲突报ConcurrentModificationException异常（并发修改冲突）
-        //TODO:next() previous() remove() set() add()
+
+        iterator.set("fds");
+        System.out.println(iterator);
+        iterator.remove();
+        System.out.println(iterator);
+        iterator.add("kkk");
+        System.out.println(iterator);
+        System.out.println();
+
+        System.out.println(it);
+        it.remove();
+        System.out.println(it);
+
+
+//        下面的方法在使用过程中如果迭代器的数据类型（LinkedList）的结构发生变化的话会产生冲突报ConcurrentModificationException异常（并发修改冲突）
+        //next() previous() remove() set() add()
 
 
     }
