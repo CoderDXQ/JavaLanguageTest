@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.callback;
+package com.example.javalanguaguetest.callback.asyn_and_sync_callback;
 
 /**
  * @author Duan Xiangqing
