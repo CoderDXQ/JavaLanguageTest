@@ -14,7 +14,7 @@ import java.util.Queue;
  */
 
 //将某个文件夹下所有包含大写的文件名递归地转换成小写，仅适用于Linux系统，MacOS和Windows系统对大小写不敏感，所以不能转换
-public class Script {
+public class A_to_a {
     public static void main(String[] args) throws IOException {
         String path = "/Users/mango/Desktop/demo";
         Queue<File> queue = new LinkedList<>();
