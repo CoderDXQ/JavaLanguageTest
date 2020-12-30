@@ -50,6 +50,9 @@ public class Script {
                 continue;
             }
             if (!Character.isLowerCase(c)) {
+//                下面这样写行不行
+//            if (Character.isUpperCase(c)) {
+
                 return false;
             }
         }
