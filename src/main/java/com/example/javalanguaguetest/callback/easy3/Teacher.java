@@ -13,11 +13,27 @@ public class Teacher implements CallBack {
         this.student = student;
     }
 
+//    这是同步的回调方法
+//    public void askQuestion(final String question) {
+//        System.out.println("Teacher ask a question:" + question);
+////        回调student的方法，之所以能回调是因为在这个类里加载了student这个类的一个实例
+////        这里的this是指Teacher这个类的一个实例 这个类里有重写的tellAnswer()方法  用CallBack这个类来接
+//        student.resolveQuestion(this, question);
+//        System.out.println("Teacher: do something else");
+//    }
+
+    //    异步回调方法
     public void askQuestion(final String question) {
         System.out.println("Teacher ask a question:" + question);
 //        回调student的方法，之所以能回调是因为在这个类里加载了student这个类的一个实例
 //        这里的this是指Teacher这个类的一个实例 这个类里有重写的tellAnswer()方法  用CallBack这个类来接
-        student.resolveQuestion(this, question);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+//                这里必须指明是Teacher.this，否则可能认为传入的是Thread类
+                student.resolveQuestion(Teacher.this, question);
+            }
+        }).start();
         System.out.println("Teacher: do something else");
     }
 
