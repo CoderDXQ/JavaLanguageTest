@@ -1,4 +1,4 @@
-package com.wgl.cupid;
+package com.example.script;
 
 
 import java.io.File;
