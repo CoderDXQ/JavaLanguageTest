@@ -36,7 +36,7 @@ public class ChoseWhiteOrBlackList {
 //        直接在定义时把List转换为Set
         Set<String> listlines = new HashSet<>(lines);
 
-//        System.out.println(listlines);R
+//        System.out.println(listlines);
 
         System.out.println();
         System.out.println(src);
