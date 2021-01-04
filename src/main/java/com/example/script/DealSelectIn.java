@@ -26,7 +26,7 @@ public class DealSelectIn {
             }
         }
         num--;
-        System.out.println(num);
+//        System.out.println(num);
 
         String[] defect = {"Fault", "Rule", "Question", "Safety"};
 
