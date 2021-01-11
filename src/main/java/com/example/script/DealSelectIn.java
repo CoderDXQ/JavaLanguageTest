@@ -1,6 +1,5 @@
 package com.example.script;
 
-import lombok.val;
 
 import java.util.Scanner;
 
@@ -42,11 +41,8 @@ public class DealSelectIn {
                 }
             }
         }
-
 //        ???先不加分号
         sql += ")";
         return sql;
     }
-
-
 }
