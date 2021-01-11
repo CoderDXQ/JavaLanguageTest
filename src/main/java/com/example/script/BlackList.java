@@ -20,6 +20,7 @@ public class BlackList {
         Scanner in = new Scanner(System.in);
         String src;
         src = in.nextLine();
+        System.out.println("第一行数据：" + src);
         File srcFile = new File(src);
 
         Set<String> allFiles = new HashSet<>();
@@ -27,11 +28,12 @@ public class BlackList {
 //        获取待处理的所有文件的路径信息
 //        静态方法的调用
 //        allFiles=AddAllFilesPath.collectAllPath();
-        allFiles = addAllFilesPath.collectAllPath1(allFiles, srcFile);
+        allFiles = addAllFilesPath.collectAllPath2(allFiles, srcFile);
         // print(allFiles);
 
-//        读取黑名单中的数据
+//        读取黑名单中的数二
         src = in.nextLine();
+        System.out.println("第二行数据：" + src);
 //        JDK8中按行读取全部内容的方法
         Path path = Paths.get(src);
         List<String> lines = Files.readAllLines(path);
