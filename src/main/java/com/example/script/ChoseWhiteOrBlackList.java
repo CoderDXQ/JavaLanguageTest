@@ -100,7 +100,6 @@ public class ChoseWhiteOrBlackList {
 
 
     private static List<String> doWhiteList(List<String> allFiles, List<String> whitelines) {
-
         List<String> adds = new ArrayList<>();
 //        内部实现使用的是迭代器，在遍历的时候不能进行删除操作
         for (String all : allFiles) {

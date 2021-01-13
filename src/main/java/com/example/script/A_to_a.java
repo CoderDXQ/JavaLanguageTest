@@ -42,7 +42,6 @@ public class A_to_a {
         }
         System.out.println("finish");
     }
-
     private static boolean judgeLowCase(String fileName) {
         char[] chars = fileName.toCharArray();
         for (char c : chars) {
