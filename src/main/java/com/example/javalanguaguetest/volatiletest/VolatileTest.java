@@ -13,6 +13,7 @@ public class VolatileTest {
 
     private static class ReaderThread extends Thread {
 
+
         @SneakyThrows
         @Override
         public void run() {
@@ -21,6 +22,10 @@ public class VolatileTest {
 //                进来的时候ready是false，500毫秒之后main()方法已经把ready改为true
                 System.out.println("ready is : " + ready + " " + Thread.currentThread().getName());
                 Thread.sleep(500);
+
+//                if (!ready) {
+//                    System.out.println("ready is : " + ready + " " + Thread.currentThread().getName() + " yield");
+//                }
                 System.out.println("ready is : " + ready + " " + Thread.currentThread().getName() + " yield");
 
                 //线程让步  该线程从执行状态变为就绪状态，后面的代码也不会执行
