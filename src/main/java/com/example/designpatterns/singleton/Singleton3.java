@@ -1,4 +1,4 @@
-package com.example.designpatterns;
+package com.example.designpatterns.singleton;
 
 /**
  * @author Duan Xiangqing
