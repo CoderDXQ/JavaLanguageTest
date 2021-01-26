@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.reflection.forname.forNameTest;
+package com.example.javalanguaguetest.reflection.classtest.forNameTest;
 
 /**
  * @author Duan Xiangqing
@@ -21,7 +21,7 @@ public class forName {
 //            测试loadClass()方法
             ClassLoader loader = ClassLoader.getSystemClassLoader();
             System.out.println("classloader testing...");
-//            只进行加载，不执行静态代码块的内容
+//            只进行加载，不执行静态代码块的内容  返回的是个类名
             Class<?> loaderUser = loader.loadClass(user);
             System.out.println("user " + loaderUser.getName());
             System.out.println("---------------------------------");

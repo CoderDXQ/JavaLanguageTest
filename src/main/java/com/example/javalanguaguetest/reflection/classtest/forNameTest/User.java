@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.reflection.forname.forNameTest;
+package com.example.javalanguaguetest.reflection.classtest.forNameTest;
 
 /**
  * @author Duan Xiangqing
