@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread;
+package com.example.javalanguaguetest.multithread.creatthread;
 
 /**
  * @author Duan Xiangqing
@@ -18,6 +18,7 @@ public class CreatThreadMethods_Runnable {
 }
 
 class MultithreadingDemo1 implements Runnable {
+    @Override
     public void run() {
         try {
             System.out.println("Thread " +

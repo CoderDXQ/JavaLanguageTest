@@ -1,8 +1,7 @@
-package com.example.javalanguaguetest.multithread;
+package com.example.javalanguaguetest.multithread.creatthread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -10,10 +9,10 @@ import java.util.concurrent.FutureTask;
  * @version 1.0
  * @date 2020/10/28 10:56 上午
  */
-public class CreatThreadMethods_Callable implements Callable<Integer> {
+public class CreatThreadMethods_Callable1 implements Callable<Integer> {
 
     public static void main(String[] args) {
-        CreatThreadMethods_Callable ctt = new CreatThreadMethods_Callable();
+        CreatThreadMethods_Callable1 ctt = new CreatThreadMethods_Callable1();
         FutureTask<Integer> ft = new FutureTask<>(ctt);
 
         for (int i = 0; i < 100; i++) {

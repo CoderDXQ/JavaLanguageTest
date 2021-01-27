@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread;
+package com.example.javalanguaguetest.multithread.creatthread;
 
 /**
  * @author Duan Xiangqing
