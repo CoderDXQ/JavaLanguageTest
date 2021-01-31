@@ -1,7 +1,5 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
-import com.example.javalanguaguetest.callback.two_writing_method_of_callback1.Li;
-
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -36,12 +34,22 @@ public class JZ36 {
         ListNode p1 = pHead1;
         ListNode p2 = pHead2;
 //        这个判断条件其实是不对的
-        while (p1.val != p2.val) {
-            p1 = p1.next == null ? pHead2 : p1.next;
+        while (p1 != p2) {
+            System.out.println(p1.val + " " + p2.val);
+            p1 = p1 == null ? pHead2 : p1.next;
 
-            p2 = p2.next == null ? pHead1 : p2.next;
+            p2 = p2 == null ? pHead1 : p2.next;
         }
 
+//        这样写在没有交点时是会进入死循环的
+//        while (p1.val != p2.val) {
+//            System.out.println(p1.val + " " + p2.val);
+//            p1 = p1.next == null ? pHead2 : p1.next;
+//
+//            p2 = p2.next == null ? pHead1 : p2.next;
+//        }
+//
+        System.out.println(p1.val);
         return p1;
     }
 
