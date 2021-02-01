@@ -9,6 +9,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class WaitAndNotify {
 
+    //    定义一把锁
     final static CountDownLatch a = new CountDownLatch(1);
 
     public static void main(String[] args) {
@@ -30,9 +31,11 @@ public class WaitAndNotify {
 
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < 100; i += 2) {
+//                设置同步代码块
                 synchronized (a) {
-                    System.out.println(Thread.currentThread().getName() + ":" + i);
+                    System.out.println(Thread.currentThread().getName() + ": " + i);
                     try {
+//                        使线程进入等待状态 释放相应的资源 释放锁
                         a.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -43,10 +46,14 @@ public class WaitAndNotify {
 
         Thread thread2 = new Thread(() -> {
             for (int i = 1; i < 100; i += 2) {
+//                设置同步代码块
                 synchronized (a) {
-                    System.out.println(Thread.currentThread().getName() + ":" + i);
+                    System.out.println(Thread.currentThread().getName() + ": " + i);
+//                    随机唤醒一个线程
                     a.notify();
                 }
+
+//                睡眠200毫秒的目的是为了等待thread1执行完毕并进入等待状态，此时再去获得锁
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
