@@ -1,6 +1,6 @@
-package com.example.javalanguaguetest.synchronizedtest.synch2;
+package com.example.javalanguaguetest.multithread.synchronizedtest.synch2;
 
-import com.example.javalanguaguetest.synchronizedtest.synch.Bank;
+import com.example.javalanguaguetest.multithread.synchronizedtest.synch.Bank;
 
 /**
  * @author Duan Xiangqing

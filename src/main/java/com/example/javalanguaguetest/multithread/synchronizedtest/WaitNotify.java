@@ -1,6 +1,5 @@
-package com.example.javalanguaguetest.synchronizedtest;
+package com.example.javalanguaguetest.multithread.synchronizedtest;
 
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**

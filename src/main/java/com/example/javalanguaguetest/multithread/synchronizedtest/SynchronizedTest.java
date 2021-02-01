@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.synchronizedtest;
+package com.example.javalanguaguetest.multithread.synchronizedtest;
 
 
 public class SynchronizedTest {

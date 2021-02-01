@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.synchronizedtest.blockingQueue;
+package com.example.javalanguaguetest.multithread.synchronizedtest.blockingQueue;
 
 import java.io.File;
 import java.io.IOException;

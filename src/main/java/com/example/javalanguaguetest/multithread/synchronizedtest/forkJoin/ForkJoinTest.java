@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.synchronizedtest.forkJoin;
+package com.example.javalanguaguetest.multithread.synchronizedtest.forkJoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;

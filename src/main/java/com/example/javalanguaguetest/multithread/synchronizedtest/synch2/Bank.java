@@ -1,9 +1,6 @@
-package com.example.javalanguaguetest.synchronizedtest.synch2;
+package com.example.javalanguaguetest.multithread.synchronizedtest.synch2;
 
 import java.util.Arrays;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Duan Xiangqing
