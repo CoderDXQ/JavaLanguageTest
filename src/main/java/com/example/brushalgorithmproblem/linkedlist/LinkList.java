@@ -3,6 +3,8 @@ package com.example.brushalgorithmproblem.linkedlist;
 import java.util.Objects;
 
 /**
+ * 名字应该是LinkedList
+ *
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/2/3 12:01 下午
