@@ -7,6 +7,7 @@ import java.sql.*;
  * @version 1.0
  * @date 2020/11/3 10:36 下午
  */
+//内含mysql8的标准配置
 public class JdbcTest {
     public static void main(String[] args) {
         //Statement
