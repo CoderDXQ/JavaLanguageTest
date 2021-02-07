@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest.threadPool;
+package com.example.juc.threadPool;
 
 import java.io.File;
 import java.io.FileNotFoundException;
