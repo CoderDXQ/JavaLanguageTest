@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.creatthread;
+package com.example.juc.creatthread;
 
 import java.util.ArrayList;
 import java.util.concurrent.*;
