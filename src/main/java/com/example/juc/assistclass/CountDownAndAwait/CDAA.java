@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.lock.CountDownAndAwait;
+package com.example.juc.assistclass.CountDownAndAwait;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
