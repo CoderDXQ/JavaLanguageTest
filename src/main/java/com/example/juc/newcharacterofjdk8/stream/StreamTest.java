@@ -1,4 +1,4 @@
-package com.example.juc.stream;
+package com.example.juc.newcharacterofjdk8.stream;
 
 /**
  * @author Duan Xiangqing
