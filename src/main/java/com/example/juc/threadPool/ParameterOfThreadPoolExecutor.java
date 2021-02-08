@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class ParameterOfThreadPoolExecutor {
 
     //    创建一个线程池
-    private static ThreadPoolExecutor fixedThreadPool = new ThreadPoolExecutor(
+    private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
             1,//核心线程数量
             2,//最大线程数量
             0L,//存活时间
@@ -21,14 +21,14 @@ public class ParameterOfThreadPoolExecutor {
     );
 
     private static void printCount() {
-        System.out.println("当前活跃线程数:" + fixedThreadPool.getActiveCount());
-        System.out.println("当前核心线程数:" + fixedThreadPool.getCorePoolSize());
-        System.out.println("阻塞队列中的任务数:" + fixedThreadPool.getQueue().size());
+        System.out.println("当前活跃线程数:" + threadPool.getActiveCount());
+        System.out.println("当前核心线程数:" + threadPool.getCorePoolSize());
+        System.out.println("阻塞队列中的任务数:" + threadPool.getQueue().size());
         System.out.println("---------------------------------------------------------");
     }
 
     public static void creatATask(int timelong) {
-        fixedThreadPool.execute(new Runnable() {
+        threadPool.execute(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -80,6 +80,6 @@ public class ParameterOfThreadPoolExecutor {
         System.out.println("第三个任务执行完毕，非核心线程被销毁，核心线程保留");
         printCount();
 
-        fixedThreadPool.shutdown();
+        threadPool.shutdown();
     }
 }
