@@ -7,6 +7,7 @@ import java.util.function.Function;
  * @version 1.0
  * @date 2021/2/8 11:59 下午
  */
+//函数式接口：只有一个类型的接口
 public class FunctionTest1 {
 
     public static void main(String[] args) {
