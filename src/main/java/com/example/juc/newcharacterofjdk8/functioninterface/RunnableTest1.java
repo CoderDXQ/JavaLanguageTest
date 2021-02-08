@@ -9,6 +9,7 @@ public class RunnableTest1 {
 
     public static void main(String[] args) {
 
+//        没有入参和出参
         Runnable run1 = () -> {
             System.out.println("haha");
         };
