@@ -14,15 +14,20 @@ public class ForkJoinDemo extends RecursiveTask<Long> {
     private Long end;
 
     //    临界值
-    private Long temp = 10000L;
+    private Long temp = 1000L;
 
     public ForkJoinDemo(Long start, Long end) {
+//        看一下每次的划分
+//        System.out.println("start=" + start + " end=" + end);
+
         this.start = start;
         this.end = end;
     }
 
+    //    compute()方法是自动执行的
     @Override
     protected Long compute() {
+
         if ((end - start) < temp) {
             Long sum = 0L;
             for (Long i = start; i <= end; i++) {
