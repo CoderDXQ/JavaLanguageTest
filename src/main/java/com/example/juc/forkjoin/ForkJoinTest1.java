@@ -16,22 +16,33 @@ public class ForkJoinTest1 {
         final int SIZE = 10000000;
         double[] numbers = new double[SIZE];
         int jishu = 0;
+
+        Long start = System.currentTimeMillis();
+
         for (int i = 0; i < SIZE; i++) {
             numbers[i] = Math.random();
-            if (numbers[i] > 0.5) jishu++;
+            if (numbers[i] > 0.5) {
+                jishu++;
+            }
         }
+
+        Long end = System.currentTimeMillis();
 
         //第四个参数是filter的参数(规则) 过滤器 意思是返回大于x是否大于0.5 这个程序实际上是一个蒙特卡罗方法
         Counter counter = new Counter(numbers, 0, numbers.length, x -> x > 0.5);
 
         //生成一个fork-join框架的实例 fork的意思是分叉 join的意思是合并
         ForkJoinPool pool = new ForkJoinPool();
+
+        Long start1 = System.currentTimeMillis();
         //调用某个计算任务
         pool.invoke(counter);
 
-        System.out.println("生成随机数时的计数结果：" + jishu);
+        Long end1 = System.currentTimeMillis();
+
+        System.out.println("生成随机数时的计数结果：" + jishu + " 用时：" + (end - start));
         //join()方法合并计算结果
-        System.out.println("多线程的计数结果：" + counter.join());
+        System.out.println("多线程的计数结果：" + counter.join() + " 用时：" + (end1 - start1));
     }
 }
 
@@ -51,6 +62,7 @@ class Counter extends RecursiveTask<Integer> {
         this.filter = filter;
     }
 
+    @Override
     protected Integer compute() {
         //不在分配空闲线程 开始进行计数工作
         if (to - from < THRESHOLD) {

@@ -16,10 +16,14 @@ import java.util.concurrent.FutureTask;
  * @version 1.0
  * @date 2020/11/18 4:25 下午
  */
+
+//在某个文件夹中检索文件是否包含某个关键词，并返回数量
 public class FutureTest {
     public static void main(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
+
+            //??????这里要改成自己的
             System.out.println("Enter base directory (e.g. /opt/jdk1.8.0/src): ");
             //建议输入本包下的test文件夹的绝对路径
             String directory = in.nextLine();
@@ -31,7 +35,7 @@ public class FutureTest {
             MatchCounter counter = new MatchCounter(new File(directory), keyword);
             //未来的计算任务 返回值是Integer 这不是个数组
             FutureTask<Integer> task = new FutureTask<>(counter);
-            //将未来计算任务扔到一个线程中执行
+            //将未来计算任务扔到一个线程中执行 计算结果自动存储在FutureTask<Integer>中
             Thread t = new Thread(task);
             t.start();
 
@@ -58,12 +62,13 @@ class MatchCounter implements Callable<Integer> {
     }
 
     //call()方法会自动执行
+    @Override
     public Integer call() {
         int count = 0;
         try {
             File[] files = directory.listFiles();
 
-            //创建未来计算任务列表
+            //创建未来计算任务列表 Callable返回Integer值存储在Future中
             List<Future<Integer>> results = new ArrayList<>();
 
             for (File file : files) {
@@ -71,6 +76,7 @@ class MatchCounter implements Callable<Integer> {
                 if (file.isDirectory()) {
                     //使用多线程实现枚举遍历文件夹 为每个文件夹创建一个未来计算任务 然后放进results这个列表中
                     MatchCounter counter = new MatchCounter(file, keyword);
+//                    新建计算任务
                     FutureTask<Integer> task = new FutureTask<>(counter);
                     results.add(task);
                     //每个线程只能扔进去一个计算任务
@@ -81,7 +87,9 @@ class MatchCounter implements Callable<Integer> {
 
                     t.start();
                 } else {
-                    if (search(file)) count++;
+                    if (search(file)) {
+                        count++;
+                    }
                 }
             }
 
