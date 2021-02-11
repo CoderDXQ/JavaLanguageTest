@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.volatiletest;
+package com.example.juc.volatiletest;
 
 import lombok.SneakyThrows;
 

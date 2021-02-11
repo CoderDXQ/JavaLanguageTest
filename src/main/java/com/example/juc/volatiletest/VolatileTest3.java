@@ -1,6 +1,4 @@
-package com.example.javalanguaguetest.volatiletest;
-
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
+package com.example.juc.volatiletest;
 
 /**
  * @author Duan Xiangqing
@@ -13,7 +11,7 @@ import com.sun.corba.se.spi.orbutil.threadpool.Work;
 public class VolatileTest3 {
 
     //    这是一个静态内部类
-    static class Work {
+    private static class Work {
         //如果不加volatile在控制台输出shutdown之后会继续输出dowork，说明isShutdown的更新值没有及时被其他线程获取，出现了脏读现象
 //        volatile boolean isShutdown = false;
         boolean isShutdown = false;

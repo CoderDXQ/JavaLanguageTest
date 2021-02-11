@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.volatiletest;
+package com.example.juc.volatiletest;
 
 /**
  * @author Duan Xiangqing
@@ -22,7 +22,8 @@ public class VolatileTest1 extends Thread {
     public void run() {
         for (int i = 0; i < 10; i++) {
             try {
-                inc();
+//                inc();
+                n++;
                 sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
