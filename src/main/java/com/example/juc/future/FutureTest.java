@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest.future;
+package com.example.juc.future;
 
 
 import java.io.File;
