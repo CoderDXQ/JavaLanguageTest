@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest.forkJoin;
+package com.example.juc.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
@@ -10,7 +10,7 @@ import java.util.function.DoublePredicate;
  * @date 2020/11/18 9:40 下午
  */
 //统计随机生成的0-1的随机数中有多少大于0.5的数 本质上是一个蒙特卡洛
-public class ForkJoinTest {
+public class ForkJoinTest1 {
     public static void main(String[] args) {
 
         final int SIZE = 10000000;
