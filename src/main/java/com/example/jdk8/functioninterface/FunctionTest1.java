@@ -1,4 +1,4 @@
-package com.example.juc.newcharacterofjdk8.functioninterface;
+package com.example.jdk8.functioninterface;
 
 import java.util.function.Function;
 
