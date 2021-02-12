@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest.synch2;
+package com.example.juc.multithread.synchronizedtest.synch2;
 
 import java.util.Arrays;
 

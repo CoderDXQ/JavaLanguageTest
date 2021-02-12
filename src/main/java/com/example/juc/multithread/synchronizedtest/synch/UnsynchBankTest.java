@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest.synch;
+package com.example.juc.multithread.synchronizedtest.synch;
 
 /**
  * @author Duan Xiangqing

@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.synchronizedtest;
+package com.example.juc.multithread.synchronizedtest;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread;
+package com.example.juc.multithread;
 
 /**
  * @author Duan Xiangqing
