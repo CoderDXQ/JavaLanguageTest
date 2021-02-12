@@ -1,4 +1,4 @@
-package com.example.javalanguaguetest.multithread.lock;
+package com.example.juc.kindsoflock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
