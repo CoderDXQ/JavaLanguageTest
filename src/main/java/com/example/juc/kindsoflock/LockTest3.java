@@ -8,6 +8,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  * @date 2021/2/12 11:05 上午
  */
+
+//可重入锁
 public class LockTest3 {
     public static void main(String[] args) {
         Phone2 phone = new Phone2();
