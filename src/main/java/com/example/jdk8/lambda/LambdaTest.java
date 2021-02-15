@@ -63,7 +63,7 @@ public class LambdaTest {
         return emps;
     }
 
-    //    按照策略设计模式来实现过滤器 需要传入实现接口的类 类中有过滤规则（一个方法）
+    //    按照策略设计模式来实现过滤器 这个方法将参数和含有规则的类结合在一起 需要传入实现接口的类 类中有过滤规则（一个方法）
     public List<Employee> filterEmployee(List<Employee> list, MyPredicate<Employee> mp) {
 
         List<Employee> emps = new ArrayList<>();
@@ -108,6 +108,19 @@ public class LambdaTest {
         employees.stream()
                 .map(Employee::getName)
                 .forEach(System.out::println);
+    }
+
+    //    lambda与函数式接口共同使用
+    @Test
+    public void test7() {
+        System.out.println(operation(100, (x) -> x * x));
+
+        System.out.println(operation(200, (y) -> y + 200));
+    }
+
+    //    这个方法将参数和接口中的抽象方法结合在一起
+    public Integer operation(Integer num, MyFunc mf) {
+        return mf.getValue(num);
     }
 
 }
