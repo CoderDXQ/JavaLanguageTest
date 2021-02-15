@@ -63,7 +63,7 @@ public class LambdaTest {
         return emps;
     }
 
-    //    按照策略设计模式来实现过滤器 需要传入实现接口的类
+    //    按照策略设计模式来实现过滤器 需要传入实现接口的类 类中有过滤规则（一个方法）
     public List<Employee> filterEmployee(List<Employee> list, MyPredicate<Employee> mp) {
 
         List<Employee> emps = new ArrayList<>();
@@ -97,17 +97,17 @@ public class LambdaTest {
     }
 
     //    使用stream流实现过滤器
-//    @Test
-//    public void test5() {
-//        employees.stream()
-//                .filter((e) -> e.getSalary() >= 5000)
-//                .limit(2)
-//                .forEach(System.out::println);
-//
-//        System.out.println("-----------------------------------------");
-//        employees.stream()
-//                .map(Employee::getName)
-//                .forEach(System.out::println);
-//    }
+    @Test
+    public void test6() {
+        employees.stream()
+                .filter((e) -> e.getSalary() <= 5000)
+                .limit(2)
+                .forEach(System.out::println);
+
+        System.out.println("-----------------------------------------");
+        employees.stream()
+                .map(Employee::getName)
+                .forEach(System.out::println);
+    }
 
 }
