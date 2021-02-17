@@ -92,6 +92,7 @@ public class LambdaTest {
     //    使用策略设计模式和lambda写匿名内部类的过滤器写法
     @Test
     public void test4() {
+//        lambda表达式实现的匿名内部类就包含具体的策略
         List<Employee> list = filterEmployee(employees, (e) -> e.getSalary() <= 5000);
         list.forEach(System.out::println);
     }
@@ -122,5 +123,6 @@ public class LambdaTest {
     public Integer operation(Integer num, MyFunc mf) {
         return mf.getValue(num);
     }
+
 
 }
