@@ -29,20 +29,40 @@ public class CreateBlankHead {
             System.out.println(projectpath + " 文件夹已经存在");
         }
 
-
-        String msg = "/home/dtslinux/桌面/blankhead/blankheadtest.cpp:2:10: fatal error: dtsblankhead.h: 没有那个文件或目录 #include <qwq/qwq/dtsblankhead.h>          ^~~~~~~~~~~~~~~~compilation terminated.\n";
+//        ???这里的引号可能需要处理一下  看看从msg里读出来是什么样的
+        String msg = "/home/dtslinux/桌面/blankhead/blankheadtest.cpp:2:10: fatal error: dtsblankhead.h: 没有那个文件或目录 #include \"qwq/qwq/dtsblankhead.h\"          ^~~~~~~~~~~~~~~~compilation terminated.\n";
 
 //        暂时用这个来处理
-        Integer index1 = msg.indexOf("#include <");
-        while (msg.charAt(index1) != '<') {
-            index1++;
-        }
-        index1++;
+        Integer index1 = 0;
+        Integer index2 = 0;
 
-        Integer index2 = index1;
-        while (msg.charAt(index2) != '>') {
-            index2++;
+//        每次报错就只报一个缺失的头文件 否则的话需要改逻辑
+        if (msg.contains("#include <")) {
+            index1 = msg.indexOf("#include <");
+            while (msg.charAt(index1) != '<') {
+                index1++;
+            }
+            index1++;
+
+            index2 = index1;
+            while (msg.charAt(index2) != '>') {
+                index2++;
+            }
         }
+
+        if (msg.contains("#include \"")) {
+            index1 = msg.indexOf("#include \"");
+            while (msg.charAt(index1) != '\"') {
+                index1++;
+            }
+            index1++;
+
+            index2 = index1;
+            while (msg.charAt(index2) != '\"') {
+                index2++;
+            }
+        }
+
 
 //        获得要创建的空头文件的路径
         String blankHead = msg.substring(index1, index2);

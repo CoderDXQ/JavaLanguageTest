@@ -6,6 +6,9 @@ package com.example.atest;
  * @date 2021/2/3 3:54 下午
  */
 public class test {
+    public static void main(String[] args) {
+        System.out.println("#include \"");
+    }
 
 
 }
