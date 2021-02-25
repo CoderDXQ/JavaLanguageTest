@@ -53,11 +53,8 @@ public class JZ8 {
         Integer n = in.nextInt();
 
         System.out.println(method1(n));
-        System.out.println(method2(n));
         System.out.println(method3(n));
         System.out.println(method4(n));
-
     }
-
 
 }
