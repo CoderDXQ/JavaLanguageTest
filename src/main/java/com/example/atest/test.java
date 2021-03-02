@@ -8,6 +8,11 @@ package com.example.atest;
 public class test {
     public static void main(String[] args) {
         System.out.println("#include \"");
+
+        String str = "123";
+        int a = Integer.parseInt(str);
+        a--;
+        System.out.println(a);
     }
 
 

@@ -13,7 +13,7 @@ public class ListUtils {
      *
      * @param head
      */
-    private static void print(ListNode head) {
+    public static void print(ListNode head) {
         if (head != null) {
             System.out.println(head.val + " ");
             head = head.next;
