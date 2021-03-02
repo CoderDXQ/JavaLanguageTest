@@ -1,5 +1,7 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -19,7 +21,10 @@ public class BinaryTreeUtils {
     }
 
     /**
-     * 建树
+     * 建树 建树的数组中包含"#"的调用这个方法 传入的数组是字符串数组
+     *
+     * @param tree
+     * @return
      */
     public static TreeNode create(String[] tree) {
         if (tree == null || tree.length == 0 || tree[0] == "#") {
@@ -53,6 +58,40 @@ public class BinaryTreeUtils {
     }
 
     /**
+     * 建树 传入的是整型数组
+     *
+     * @param tree
+     * @return
+     */
+    public static TreeNode create1(int[] tree) {
+        if (tree == null || tree.length == 0) {
+            return null;
+        }
+
+//        创建二叉树的节点数组
+        TreeNode[] binaryTree = new TreeNode[tree.length];
+        for (int i = 0; i < tree.length; i++) {
+            binaryTree[i] = new TreeNode(tree[i]);
+        }
+
+//        连接二叉树
+        int k = 1;
+        for (int i = 0; i < binaryTree.length; i++) {
+            if (binaryTree[i] != null) {
+                if (k < binaryTree.length) {
+                    binaryTree[i].left = binaryTree[k++];
+                }
+                if (k < binaryTree.length) {
+                    binaryTree[i].right = binaryTree[k++];
+                }
+            }
+        }
+
+        return binaryTree[0];
+    }
+
+
+    /**
      * 先序遍历
      *
      * @param root
@@ -63,7 +102,7 @@ public class BinaryTreeUtils {
             return;
         }
 
-        System.out.println(root.val + " ");
+        System.out.print(root.val + " ");
 
         if (root.left != null) {
             preOrder(root.left);
@@ -90,7 +129,7 @@ public class BinaryTreeUtils {
             preOrder(root.left);
         }
 
-        System.out.println(root.val + " ");
+        System.out.print(root.val + " ");
 
         if (root.right != null) {
             preOrder(root.right);
@@ -117,7 +156,7 @@ public class BinaryTreeUtils {
             preOrder(root.right);
         }
 
-        System.out.println(root.val + " ");
+        System.out.print(root.val + " ");
     }
 
     public static void layerOrder(TreeNode root) {
@@ -125,18 +164,20 @@ public class BinaryTreeUtils {
             System.out.println("根为空");
             return;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.empty()) {
-            TreeNode node = stack.pop();
-            System.out.println(node.val + " ");
+//        java中队列使用链表实现
+        Queue<TreeNode> stack = new LinkedList<>();
+        stack.offer(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.poll();
+            System.out.print(node.val + " ");
             if (node.left != null) {
-                stack.push(node.left);
+                stack.offer(node.left);
             }
             if (node.right != null) {
-                stack.push(node.right);
+                stack.offer(node.right);
             }
         }
+        System.out.println();
     }
 
 

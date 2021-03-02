@@ -1,10 +1,13 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
+import lombok.NoArgsConstructor;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/3/1 9:55 下午
  */
+@NoArgsConstructor
 public class ListNode {
     int val;
     ListNode next = null;
