@@ -96,21 +96,21 @@ public class BinaryTreeUtils {
      *
      * @param root
      */
-    public static void preOrder(TreeNode root) {
+    public static void postOrder(TreeNode root) {
         if (root == null) {
             System.out.println("根为空");
             return;
         }
 
-        System.out.print(root.val + " ");
-
         if (root.left != null) {
-            preOrder(root.left);
+            postOrer(root.left);
         }
 
         if (root.right != null) {
-            preOrder(root.right);
+            postOrer(root.right);
         }
+
+        System.out.print(root.val + " ");
 
     }
 
@@ -119,20 +119,20 @@ public class BinaryTreeUtils {
      *
      * @param root
      */
-    public static void inOrer(TreeNode root) {
+    public static void inOrder(TreeNode root) {
         if (root == null) {
             System.out.println("根为空");
             return;
         }
 
         if (root.left != null) {
-            preOrder(root.left);
+            inOrder(root.left);
         }
 
         System.out.print(root.val + " ");
 
         if (root.right != null) {
-            preOrder(root.right);
+            inOrder(root.right);
         }
 
     }
@@ -149,11 +149,11 @@ public class BinaryTreeUtils {
         }
 
         if (root.left != null) {
-            preOrder(root.left);
+            postOrer(root.left);
         }
 
         if (root.right != null) {
-            preOrder(root.right);
+            postOrer(root.right);
         }
 
         System.out.print(root.val + " ");
