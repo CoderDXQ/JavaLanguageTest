@@ -45,6 +45,7 @@ public class JZ28 {
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
+//                必不可少 防止出现i,j上的数和mid上的数相等的情况而陷入死循环
                 i++;
                 j--;
             }
