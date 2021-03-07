@@ -39,8 +39,8 @@ public class JZ67 {
     //    记忆化搜索
     public static int cutRope(int target) {
 
-        rem[2]=2;
-        rem[3]=3;
+        rem[2] = 2;
+        rem[3] = 3;
 
         if (target == 2) {
             return 2;
@@ -49,7 +49,11 @@ public class JZ67 {
             return 3;
         }
 
-        for (int i = 2; i < target; i++) {
+//        for (int i = 2; i < target; i++) {
+//            rem[target] = Math.max(rem[target], rem[i] * cutRope(target - i));
+//        }
+
+        for (int i = target; i >= 3; i--) {
             rem[target] = Math.max(rem[target], rem[i] * cutRope(target - i));
         }
 
@@ -59,7 +63,7 @@ public class JZ67 {
 
     public static void main(String[] args) {
 
-        int n = 9;
+        int n = 8;
         System.out.println(cutRope(n));
 
     }
