@@ -11,8 +11,6 @@ public class JZ28 {
 
     //    排序直接找中间的数 然后验一下个数是否过半
 //    顺便写一下快速排序
-
-
     public static int MoreThanHalfNum_Solution(int[] array) {
         int result = QuickSort(array, 0, array.length - 1)[array.length / 2];
 
