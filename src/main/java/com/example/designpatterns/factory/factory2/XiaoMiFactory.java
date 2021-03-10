@@ -1,5 +1,6 @@
 package com.example.designpatterns.factory.factory2;
 
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -8,8 +9,7 @@ package com.example.designpatterns.factory.factory2;
 public class XiaoMiFactory implements AbstractFactory {
 
     @Override
-    public IPhone makePhone() {
-
+    public Phone makePhone() {
         return new MiPhone();
     }
 

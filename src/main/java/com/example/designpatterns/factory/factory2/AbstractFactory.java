@@ -8,7 +8,7 @@ package com.example.designpatterns.factory.factory2;
  */
 public interface AbstractFactory {
     //    声明抽象工厂的方法
-    IPhone makePhone();
+    Phone makePhone();
 
     PC makePC();
 }

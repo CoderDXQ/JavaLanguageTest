@@ -8,7 +8,7 @@ package com.example.designpatterns.factory.factory2;
  */
 public class AppleFactory implements AbstractFactory {
     @Override
-    public IPhone makePhone() {
+    public Phone makePhone() {
         return new IPhone();
     }
 
