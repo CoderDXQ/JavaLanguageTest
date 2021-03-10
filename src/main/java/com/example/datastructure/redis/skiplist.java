@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.datastructure.redis;
 
 /**
  * @author Duan Xiangqing

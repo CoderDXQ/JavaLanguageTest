@@ -1,4 +1,4 @@
-package com.example.brushalgorithmproblem.linkedlist;
+package com.example.datastructure.linkedlist;
 
 import java.util.Objects;
 

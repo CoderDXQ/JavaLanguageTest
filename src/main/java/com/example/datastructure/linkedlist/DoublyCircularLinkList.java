@@ -1,4 +1,4 @@
-package com.example.brushalgorithmproblem.linkedlist;
+package com.example.datastructure.linkedlist;
 
 /**
  * 双向循环链表  是首尾相接的双向链表，不是简单的双向链表

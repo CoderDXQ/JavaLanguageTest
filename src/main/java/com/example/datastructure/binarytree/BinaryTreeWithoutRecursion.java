@@ -1,4 +1,4 @@
-package com.example.brushalgorithmproblem.binarytree.binarywithoutrecursion;
+package com.example.datastructure.binarytree;
 
 import java.util.Stack;
 

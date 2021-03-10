@@ -9,6 +9,8 @@ import java.util.Queue;
  * @version 1.0
  * @date 2021/3/8 6:29 下午
  */
+
+//堆排序的时间复杂度分析：https://blog.csdn.net/YuZhiHui_No1/article/details/44258297
 public class JZ29 {
 
     //    直接使用java集合 优先队列
@@ -20,7 +22,7 @@ public class JZ29 {
         }
 
 //        Queue<Integer> heap = new PriorityQueue<>(k, (i1, i2) -> Integer.compare(i2, i1));
-//        设置堆的排序规则
+//        设置堆的排序规则 大根堆
         Queue<Integer> heap = new PriorityQueue<>(k, (a, b) -> Integer.compare(b, a));
 
         for (int e : input) {
@@ -38,7 +40,7 @@ public class JZ29 {
         return list;
     }
 
-    //    手写堆排序
+    //    手写堆排序  大根堆 ？？？需要再理解一下
     public static ArrayList<Integer> GetLeastNumbers_Solution1(int[] input, int k) {
         ArrayList<Integer> list = new ArrayList<>();
         if (input == null || input.length == 0 || k > input.length || k == 0)
@@ -62,7 +64,7 @@ public class JZ29 {
 
     /**
      * @Author: ZwZ
-     * @Description: 构造大根堆
+     * @Description: 构造大根堆 使用数组来静态实现完全二叉树  优先队列的底层的树是完全二叉树
      * @Param: [arr, length]  length:数组长度 作为是否跳出循环的条件
      * @return: void
      * @Date: 2020/1/30-22:06
@@ -70,7 +72,8 @@ public class JZ29 {
     public static void buildMaxHeap(int[] arr, int length) {
         if (arr == null || arr.length == 0 || arr.length == 1)
             return;
-        for (int i = (length - 1) / 2; i > 0; i--) {
+//        将非叶节点分别移到最后一个节点来进行调整就能达到建树的目的
+        for (int i = (length - 1) / 2; i > 0; i--) {//(length - 1) / 2  这是最后一个父节点的位置
             adjustDown(arr, i, arr.length);
         }
     }
@@ -83,14 +86,14 @@ public class JZ29 {
      * @Date: 2020/1/30-21:55
      */
     public static void adjustDown(int[] arr, int k, int length) {
-        arr[0] = arr[k];//哨兵
+        arr[0] = arr[k];//哨兵 arr[0]实际就是起了交换两个变量的值的方法中的temp的作用
         for (int i = 2 * k; i <= length; i *= 2) {
             if (i < length - 1 && arr[i] < arr[i + 1])
-                i++;//取k较大的子结点的下标
+                i++;//取k较大的子结点的下标 切换到右孩子 取左右孩子中的节点最大值
             if (i > length - 1 || arr[0] >= arr[i])
                 break;
             else {
-                arr[k] = arr[i];
+                arr[k] = arr[i];//是父节点存放最大值
                 k = i; //向下筛选
             }
         }
