@@ -14,9 +14,27 @@ public class ListUtils {
      * @param head
      */
     public static void print(ListNode head) {
-        if (head != null) {
-            System.out.println(head.val + " ");
-            head = head.next;
+        ListNode cur = head;
+        while (cur != null) {
+            System.out.print(cur.val + " ");
+            cur = cur.next;
         }
+        System.out.println();
+    }
+
+    /**
+     * 使用整型数组创建链表
+     *
+     * @param array
+     * @return
+     */
+    public static ListNode create(int[] array) {
+        ListNode pHead = new ListNode(array[0]);
+        ListNode cur = pHead;
+        for (int i = 1; i < array.length; i++) {
+            cur.next = new ListNode(array[i]);
+            cur = cur.next;
+        }
+        return pHead;
     }
 }
