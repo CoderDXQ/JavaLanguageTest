@@ -1,6 +1,5 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
-import java.lang.reflect.InvocationHandler;
 
 /**
  * @author Duan Xiangqing
