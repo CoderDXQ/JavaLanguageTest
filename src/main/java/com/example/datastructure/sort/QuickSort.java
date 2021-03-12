@@ -11,22 +11,4 @@ import com.example.brushalgorithmproblem.swordtooffer.ListNode;
 //快速排序的递归和非递归实现
 public class QuickSort {
 
-    public static ListNode deleteDuplication(ListNode pHead) {
-
-
-        return pHead;
-    }
-
-
-    public static void main(String[] args) {
-
-        int[] lists = new int[]{1, 2, 3, 3, 4, 4, 5};
-
-
-
-
-
-
-
-    }
 }
