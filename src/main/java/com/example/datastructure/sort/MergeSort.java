@@ -34,7 +34,7 @@ public class MergeSort {
             arr[k++] = array[j++];
         }
 
-//        复制回原数组
+//        复制回原数组 因为这个方法是静态方法  所以不需要返回数组的值
         System.arraycopy(arr, left, array, left, right - left + 1);
     }
 
