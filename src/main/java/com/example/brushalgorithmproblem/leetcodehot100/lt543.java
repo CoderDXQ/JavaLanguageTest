@@ -1,12 +1,12 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
-import com.example.designpatterns.factory.factory2.MAC;
-
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/3/16 12:09 上午
  */
+
+//二叉树的直径
 public class lt543 {
 
     //    不正确的解法

@@ -7,6 +7,8 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/16 10:52 上午
  */
+
+//对称二叉树
 public class lt101 {
 
     //    递归

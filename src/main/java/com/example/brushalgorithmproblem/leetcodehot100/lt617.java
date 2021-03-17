@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/15 11:27 下午
  */
+
+//合并二叉树
 public class lt617 {
 
     //    更改先序遍历 默认更改后返回root1

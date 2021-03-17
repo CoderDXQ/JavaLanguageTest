@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/16 12:50 上午
  */
+
+//汉明距离
 public class lt461 {
 
     //    利用异或运算同零异一的性质

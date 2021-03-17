@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/16 2:14 上午
  */
+
+//翻转二叉树
 public class lt226 {
 
     //    改进先序遍历

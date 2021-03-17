@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/15 5:02 下午
  */
+
+//二叉树的最大深度
 public class lt104 {
 
     //    深度遍历 DFS

@@ -7,6 +7,8 @@ import java.security.cert.Certificate;
  * @version 1.0
  * @date 2021/3/15 7:37 下午
  */
+
+//合并两个有序链表
 public class lt21 {
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {

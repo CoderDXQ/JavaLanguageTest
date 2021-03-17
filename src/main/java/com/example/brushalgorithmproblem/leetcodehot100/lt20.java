@@ -7,6 +7,8 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/15 12:22 上午
  */
+
+//有效的括号
 public class lt20 {
 
     //    栈

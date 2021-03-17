@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/15 3:58 下午
  */
+
+//只出现一次的数字
 public class lt136 {
 
     //    不使用额外空间就是不能标记  可以利用位运算中异或的性质来解决

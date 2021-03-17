@@ -7,6 +7,8 @@ import java.util.Arrays;
  * @version 1.0
  * @date 2021/3/16 1:07 上午
  */
+
+//移动零
 public class lt283 {
 
     //    直接覆盖

@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/15 5:39 下午
  */
+
+//最大子序和
 public class lt53 {
 
     //    动态规划

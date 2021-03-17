@@ -5,6 +5,8 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/16 10:42 上午
  */
+
+//多数元素
 public class lt169 {
 
     //    摩尔投票法 原理相当于多数元素和非多数元素两两相互抵消
