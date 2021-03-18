@@ -5,18 +5,20 @@ package com.example.datastructure.redis;
  * @version 1.0
  * @date 2021/3/18 10:38 上午
  */
+
+//跳表结点 跳表结点中的数据是成员对象 其余的都是检索用的
 public class SkipListNode<T> {
 
-    //    层
+    //    索引层 多个索引层结点组成数组，每个结点的forward指针指向要跳过去的结点  通过forward来加快查找速度
     private SkipListLevel[] level;
 
-    //    后退指针
+    //    后退指针 指向前一个节点
     private SkipListNode<T> backword;
 
-    //    分值
+    //    分值 是一个浮点数  跳表中所有结点都按照分值大小来排序
     private Double score;
 
-    //    成员对象
+    //    成员对象 具体的数据对象
     private T obj;
 
     SkipListNode(T obj) {
@@ -26,13 +28,14 @@ public class SkipListNode<T> {
         this.score = Double.valueOf(0);
     }
 
-    public SkipListNode(Double score, T obj, int levelHeight) {
+    public SkipListNode(T obj, int levelHeight, Double score) {
         this.score = score;
         this.obj = obj;
         this.level = new SkipListLevel[levelHeight];
         initLevel(this.level, levelHeight);
     }
 
+    //    初始化索引层
     private void initLevel(SkipListLevel[] level, int height) {
         for (int i = 0; i < height; i++) {
             level[i] = new SkipListLevel();
