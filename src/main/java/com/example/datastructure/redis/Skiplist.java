@@ -140,6 +140,66 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         return target;
     }
 
+    /**
+     * 删除结点
+     *
+     * @param score
+     * @param obj
+     * @return
+     */
+    public SkipListNode zslDelete(double score, T obj) {
+//        存放删除后需要更新的结点
+        SkipListNode[] update = new SkipListNode[maxLevelHeight];
+        SkipListNode<T> node = header;
+
+//        遍历查找删除后需要更新的结点 i是高度
+        for (int i = maxLevelHeight - 1; i >= 0; i--) {
+            SkipListNode<T> next = node.getLevel()[i].getForward();
+//            遍历得到与target最接近的结点
+            while (next != null && (score > next.getScore() || score == next.getScore() && next.getObj().compareTo(obj) < 0)) {
+                node = next;
+                next = node.getLevel()[i].getForward();
+            }
+            update[i] = node;
+        }
+
+//        待删除的目标节点
+        SkipListNode<T> target = update[0].getLevel()[0].getForward();
+        if (target == null) {
+            return null;
+        }
+
+//        删除后的更新操作 更新span和forward
+        for (int i = maxLevelHeight - 1; i >= 0; i--) {
+            SkipListLevel current = update[i].getLevel()[i];
+            SkipListNode<T> next = current.getForward();
+            if (next == null) {
+                continue;
+            }
+            if (next != target) {
+//                跨度减一 因为少了一个结点
+                current.modifySpan(-1);
+                continue;
+            }
+//            next==target的情况
+            current.setForward(target.getLevel()[i].getForward());
+            if (current.getForward() != null) {
+//                更新跨度 跨度减少 少了target的跨度
+                current.modifySpan(target.getLevel()[i].getSpan() - 1);
+            } else {
+//                没有forward所以跨度为0
+                current.setSpan(0);
+            }
+        }
+
+        length--;
+//        删除了高度最大的结点
+        while (header.getLevel()[maxLevelHeight - 1].getSpan() == 0) {
+            maxLevelHeight--;
+        }
+        return target;
+    }
+
 
     public static void main(String[] args) {
 
