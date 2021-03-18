@@ -11,7 +11,7 @@ import java.util.Random;
 //Redis中跳表的java实现
 //跳表的结构结点 存储跳表的首尾结点、结点数量、层数
 //跳表本质上还是一个一维链表 只不过因为索引层的存在使它可以快速跳转到另外的结点而不是一个一个遍历过去
-public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
+public class SkipList<T extends Comparable<? super T>> implements RedisObj {
     //    首尾结点的指针
     private SkipListNode<T> header;
     private SkipListNode<T> tail;
@@ -25,7 +25,7 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
     /**
      * 无参构造
      */
-    public Skiplist() {
+    public SkipList() {
         SkipListNode<T> node = new SkipListNode<>(null);
         this.header = node;
         this.tail = node;
@@ -40,9 +40,10 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
      * @return
      */
     private static int getRandomHeight() {
+//        levelHeight不能为0
         Random random = new Random();
-        int i = 0;
-        for (; i < 32; i++) {
+        int i = 1;
+        for (; i < 32; ++i) {
             if (random.nextInt(2) == 0) {
                 break;
             }
@@ -68,7 +69,7 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         int i = update.length - 1;
 //        新结点的索引层数大于原来的最大层数  把多余的层数（超高的索引层）进行初始化 超高的层是由header的forward指针直接指向过来的
         if (levelHeight > maxLevelHeight) {
-            for (; i >= maxLevelHeight; i--) {
+            for (; i >= maxLevelHeight; --i) {
                 update[i] = header;
                 rank[i] = 0;
             }
@@ -76,7 +77,7 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         }
 
 //        收集需要更新的结点（针对低一点的索引层）i就是层高  下载在同一层上进行跳转
-        for (; i >= 0; i--) {
+        for (; i >= 0; --i) {
             SkipListNode<T> node = header;
             SkipListNode<T> next = node.getLevel()[i].getForward();
             rank[i] = 0;
@@ -94,7 +95,7 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
 //        更新收集的结点的span  在这些高度的结点（ 高度>=levelHeight）只需要更新sapn值 不需要更新forward指针
 //        当新结点的高度大于以前的最高高度时 前面部分结点的span值+1
 //        span是跨度 是当前节点与其forward指针所指向的结点之间的距离
-        for (i = update.length - 1; i >= levelHeight; i--) {
+        for (i = update.length - 1; i >= levelHeight; --i) {
 //            没有forward指针
             if (update[i].getLevel()[i].getForward() == null) {
                 continue;
@@ -106,7 +107,7 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         }
 
 //        继续遍历update[] 进行插入和更新操作 在这些高度的结点（ 高度<levelHeight）既需要更新sapn值 又需要更新forward指针
-        for (; i >= 0; i--) {
+        for (; i >= 0; --i) {
             SkipListLevel pre = update[i].getLevel()[i];
 //            将target结点插入update[i]和temp之间
             SkipListNode<T> temp = pre.getForward();
@@ -325,8 +326,78 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         this.maxLevelHeight = maxLevelHeight;
     }
 
+    /**
+     * 输出整个跳表
+     *
+     * @param skipList
+     */
+    public static void printSkipList(SkipList<?> skipList) {
+        System.out.println("length:" + skipList.length);
+        System.out.println("maxLevel:" + skipList.maxLevelHeight);
+        SkipListNode<?> temp = skipList.header;
+        while (temp != null) {
+            printNode(temp);
+            temp = temp.getLevel()[0].getForward();
+        }
+        System.out.println();
+    }
+
+    /**
+     * 输出结点信息
+     *
+     * @param node
+     */
+    public static void printNode(SkipListNode<?> node) {
+        System.out.println();
+        System.out.print(" score:" + node.getScore());
+        System.out.print(" data:" + node.getObj());
+        System.out.print(" LEVELS:");
+        for (int i = 0; i < node.getLevel().length; i++) {
+            System.out.print(" level" + i + ":" + node.getLevel()[i].getSpan());
+        }
+    }
+
+    /**
+     * 测试
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
+        SkipList<Integer> skipList = new SkipList<>();
+//        测试添加结点
+        System.out.println("测试插入结点");
+        skipList.zslInsert(1.2, 32);
+        skipList.zslInsert(1.6, 30);
+        skipList.zslInsert(1.4, 36);
+        skipList.zslInsert(1.4, 30);
+        skipList.zslInsert(2.6, 56);
+        skipList.zslInsert(3.6, 119);
+        skipList.zslInsert(3.6, 119);
+//        每次的跳表都是不同的  因为索引层的层数是随机的
+        printSkipList(skipList);
+        System.out.println();
 
+//        测试搜索结点
+        System.out.println("测试搜索结点");
+        SkipListNode<Integer> temp = skipList.searchByScore(3.6, skipList.header, skipList.maxLevelHeight - 1);
+        printNode(temp);
+        System.out.println();
+
+        SkipListNode<Integer> tempFirst = skipList.zslFirstInRange(1.2, 2.7, skipList.header, skipList.maxLevelHeight - 1);
+        printNode(tempFirst);
+        System.out.println();
+        SkipListNode<Integer> tempLats = skipList.zslLastInRange(1.36, 1.6, skipList.header, skipList.maxLevelHeight - 1);
+        printNode(tempLats);
+        System.out.println();
+
+//        测试删除结点
+        System.out.println("测试删除结点");
+        skipList.zslDelete(3.6, 119);
+        printSkipList(skipList);
+        System.out.println();
+
+        skipList.zslDelete(3.6, 119);
+        printSkipList(skipList);
     }
 }
