@@ -3,9 +3,9 @@ package com.example.datastructure.redis;
 /**
  * @author Duan Xiangqing
  * @version 1.0
- * @date 2021/1/26 10:28 下午
+ * @date 2021/3/18 11:05 上午
  */
-//Redis中跳表的java实现
-public class skiplist {
 
+//底层数据结构的接口
+public interface RedisObj {
 }
