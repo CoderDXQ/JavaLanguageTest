@@ -10,6 +10,7 @@ import java.util.Random;
 //参考：https://www.cnblogs.com/buptleida/p/12838880.html
 //Redis中跳表的java实现
 //跳表的结构结点 存储跳表的首尾结点、结点数量、层数
+//跳表本质上还是一个一维链表 只不过因为索引层的存在使它可以快速跳转到另外的结点而不是一个一个遍历过去
 public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
     //    首尾结点的指针
     private SkipListNode<T> header;
@@ -200,6 +201,129 @@ public class Skiplist<T extends Comparable<? super T>> implements RedisObj {
         return target;
     }
 
+    /**
+     * 判断是否有结点的分值在某个范围中
+     *
+     * @param fromScore
+     * @param toScore
+     * @return
+     */
+    public boolean zslIsInRange(double fromScore, double toScore) {
+//        结点的分值是按从大到小来的
+        if (header.getScore() > toScore || tail.getScore() < fromScore) {
+            return false;
+        }
+        return true;
+    }
+
+
+    /**
+     * 根据分值范围 返回第一个符合范围的结点
+     *
+     * @param fromScore 分值区间左值
+     * @param toScore   分值区间右值
+     * @param node      表示从哪个结点开始访问
+     * @param k         表示从哪个索引层开始访问
+     * @return
+     */
+//    搜索过程先向右后向下
+    public SkipListNode<T> zslFirstInRange(double fromScore, double toScore, SkipListNode<T> node, int k) {
+//        判断区间合理性
+        if (!zslIsInRange(fromScore, toScore)) {
+            return null;
+        }
+
+//        同层的下一个结点
+        SkipListNode<T> next = node.getLevel()[k].getForward();
+
+//        同层走到最后一个结点
+        if (next == null || next.getScore() >= fromScore) {
+//            最底层
+            if (k == 0) {
+//                最底层最右边的结点
+                return next != null && next.getScore() > toScore ? null : next;
+            }
+//            同层走到最后一个结点后向(索引层)下一高度搜索
+            return zslFirstInRange(fromScore, toScore, node, k - 1);
+        }
+//        同高度横向搜索
+        return zslFirstInRange(fromScore, toScore, next, k);
+    }
+
+
+    /**
+     * 根据分值范围 返回最后一个符合范围的结点
+     *
+     * @param fromScore
+     * @param toScore
+     * @param node
+     * @param k
+     * @return
+     */
+    public SkipListNode<T> zslLastInRange(double fromScore, double toScore, SkipListNode<T> node, int k) {
+//        判断区间合理性
+        if (!zslIsInRange(fromScore, toScore)) {
+            return null;
+        }
+
+        SkipListNode<T> next = node.getLevel()[k].getForward();
+
+//        同层走到头或者同层结点不符合范围要求
+        if (next == null || next.getScore() > toScore) {
+            if (k == 0) {
+                return next != null && next.getScore() < fromScore ? null : node;
+            }
+//            向下一层搜索
+            return zslLastInRange(fromScore, toScore, node, k - 1);
+        }
+
+        return zslLastInRange(fromScore, toScore, next, k);
+    }
+
+    /**
+     * 搜索某个分值的结点是否存在
+     *
+     * @param score
+     * @param node
+     * @param k
+     * @return
+     */
+    public SkipListNode<T> searchByScore(double score, SkipListNode<T> node, int k) {
+        return zslFirstInRange(score, score, node, k);
+    }
+
+
+    public SkipListNode<T> getHeader() {
+        return header;
+    }
+
+    public void setHeader(SkipListNode<T> header) {
+        this.header = header;
+    }
+
+    public SkipListNode<T> getTail() {
+        return tail;
+    }
+
+    public void setTail(SkipListNode<T> tail) {
+        this.tail = tail;
+    }
+
+    public long getLength() {
+        return length;
+    }
+
+    public void setLength(long length) {
+        this.length = length;
+    }
+
+    public int getMaxLevelHeight() {
+        return maxLevelHeight;
+    }
+
+    public void setMaxLevelHeight(int maxLevelHeight) {
+        this.maxLevelHeight = maxLevelHeight;
+    }
 
     public static void main(String[] args) {
 

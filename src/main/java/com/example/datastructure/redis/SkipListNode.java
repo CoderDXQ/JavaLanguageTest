@@ -16,6 +16,7 @@ public class SkipListNode<T> {
     private SkipListNode<T> backword;
 
     //    分值 是一个浮点数  跳表中所有结点都按照分值大小来排序
+//    一个结点只有一个分值
     private Double score;
 
     //    成员对象 具体的数据对象
