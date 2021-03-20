@@ -67,12 +67,34 @@ public class lt22 {
     }
 
 
-    //    动态规划
+    //    记录长度为n时的结果集
+    public static ArrayList[] cache = new ArrayList[100];
+
+    //    动态规划 ？？？需要再理解理解
     public static List<String> generateParenthesis1(int n) {
-        List<String> result = new LinkedList<>();
+        return generate1(n);
+    }
 
+    public static List<String> generate1(int n) {
+        if (cache[n] != null) {
+            return cache[n];
+        }
 
-        return result;
+        ArrayList<String> ans = new ArrayList<>();
+        if (n == 0) {
+            ans.add("");
+        } else {
+            for (int c = 0; c < n; c++) {
+                for (String left : generate1(c)) {
+                    for (String right : generate1(n - 1 - c)) {
+                        ans.add("(" + left + ")" + right);
+                    }
+                }
+            }
+        }
+
+        cache[n] = ans;
+        return ans;
     }
 
 
