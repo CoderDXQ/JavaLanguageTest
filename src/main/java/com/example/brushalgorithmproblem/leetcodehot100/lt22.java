@@ -76,6 +76,7 @@ public class lt22 {
     }
 
     public static List<String> generate1(int n) {
+//        剪枝 缓存当n不同值时的结果  最终cache[n]=generate1(n)
         if (cache[n] != null) {
             return cache[n];
         }
@@ -84,6 +85,7 @@ public class lt22 {
         if (n == 0) {
             ans.add("");
         } else {
+//            从0递推到n
             for (int c = 0; c < n; c++) {
                 for (String left : generate1(c)) {
                     for (String right : generate1(n - 1 - c)) {
@@ -92,7 +94,7 @@ public class lt22 {
                 }
             }
         }
-
+//        到这里 此时n的值的计算结束  存储一下
         cache[n] = ans;
         return ans;
     }
