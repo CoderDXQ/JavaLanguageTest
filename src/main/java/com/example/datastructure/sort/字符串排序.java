@@ -1,11 +1,11 @@
-package com.example.atest;
+package com.example.datastructure.sort;
 
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/3/20 3:05 下午
  */
-public class test11 {
+public class 字符串排序 {
 
     public static void main(String[] args) {
         String[] input = new String[]{"tmc", "apad", "apache", "nihao", "nihaoa"};
