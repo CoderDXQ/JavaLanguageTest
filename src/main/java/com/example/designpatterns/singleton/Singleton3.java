@@ -6,6 +6,8 @@ package com.example.designpatterns.singleton;
  * @date 2021/1/23 9:12 下午
  */
 
+
+//懒汉式 也叫饱汉式
 //双重校验锁  安全，且在多线程下可以保证高性能
 //    双重锁是volatile和synchronized
 public class Singleton3 {
