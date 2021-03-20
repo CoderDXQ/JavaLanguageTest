@@ -3,7 +3,6 @@ package com.example.bishimianshi.bianlifeng;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  * @author Duan Xiangqing
@@ -106,7 +105,5 @@ public class t1 {
         System.out.println(paixv[paixv.length - 1]);
 
 
-//        System.out.println(strin);
-//        System.out.println(strout);
     }
 }
