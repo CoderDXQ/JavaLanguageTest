@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/21 5:56 下午
  */
+//二叉树中的最大路径和
 public class lt124 {
 
     public static int maxValue;

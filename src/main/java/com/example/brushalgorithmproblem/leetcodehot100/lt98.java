@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @date 2021/3/21 6:28 下午
  */
+//验证二叉搜索树
 public class lt98 {
 
     //    改一下遍历  这样只能保证每个节点与其左右子树的大小关系  亲缘关系长了以后不能保证
