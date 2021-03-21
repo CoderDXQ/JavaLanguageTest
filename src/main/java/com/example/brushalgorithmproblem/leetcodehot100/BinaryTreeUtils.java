@@ -20,20 +20,20 @@ public class BinaryTreeUtils {
     }
 
     /**
-     * 建树 建树的数组中包含"#"的调用这个方法 传入的数组是字符串数组
+     * 建树 建树的数组中包含"#"或者null时，调用这个方法 传入的数组是字符串数组
      *
      * @param tree
      * @return
      */
     public static TreeNode create(String[] tree) {
-        if (tree == null || tree.length == 0 || tree[0] == "#") {
+        if (tree == null || tree.length == 0 || tree[0] == "#" || tree[0] == null) {
             return null;
         }
 
 //        创建二叉树的节点数组
         TreeNode[] binaryTree = new TreeNode[tree.length];
         for (int i = 0; i < tree.length; i++) {
-            if (tree[i] == "#") {
+            if (tree[i] == "#" || tree[i] == null) {
                 binaryTree[i] = null;
             } else {
                 binaryTree[i] = new TreeNode(Integer.valueOf(tree[i]));
