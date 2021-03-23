@@ -9,6 +9,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/3/22 10:13 下午
  */
+//组合总和
 public class lt39 {
 
     public static List<List<Integer>> result;
