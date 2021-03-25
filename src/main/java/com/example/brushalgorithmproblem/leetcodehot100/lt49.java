@@ -49,11 +49,36 @@ public class lt49 {
         return result;
     }
 
+    //    重写上面的方法
+    public static List<List<String>> groupAnagrams1(String[] strs) {
+        HashMap<String, List<String>> hashMap = new HashMap<>();
+        for (String str : strs) {
+            char[] chs = str.toCharArray();
+            Arrays.sort(chs);
+            String st = new String(chs);
+//            如果有就拿到  如果没有就用括号里的参数，这就是设置的默认情况
+            List<String> list = hashMap.getOrDefault(st, new ArrayList<String>());
+            list.add(str);
+//            put方法会覆盖
+            hashMap.put(st, list);
+        }
+//        values()方法直接拿到hashMap的所有值
+        return new ArrayList<List<String>>(hashMap.values());
+    }
+
+
     public static void main(String[] args) {
 
         String[] strs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
 
         groupAnagrams(strs).forEach(a -> {
+            a.forEach(b -> {
+                System.out.print(b + " ");
+            });
+            System.out.println();
+        });
+        System.out.println();
+        groupAnagrams1(strs).forEach(a -> {
             a.forEach(b -> {
                 System.out.print(b + " ");
             });
