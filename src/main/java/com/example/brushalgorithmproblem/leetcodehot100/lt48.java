@@ -19,8 +19,13 @@ public class lt48 {
 
             System.out.println();
         }
+    }
+
+    //    实际地转换一下数组
+    public static void rotate1(int[][] matrix) {
 
     }
+
 
     public static void main(String[] args) {
         int[][] matrix = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};

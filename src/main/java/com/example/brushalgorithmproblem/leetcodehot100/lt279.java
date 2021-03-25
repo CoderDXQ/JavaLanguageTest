@@ -12,6 +12,7 @@ public class lt279 {
 
     public static int reslult;
 
+    //    这种枚举会超时
     public static int numSquares(int n) {
 
 //        产生所有可用的完全平方数
@@ -45,8 +46,25 @@ public class lt279 {
 
     }
 
+    //    动态规划
+    public static int numSquares1(int n) {
+
+    }
+
+
+//    建立m叉树+层序遍历
+
+    public static int numSquares2(int n) {
+
+    }
+
+
     public static void main(String[] args) {
         int n = 12;
         System.out.println(numSquares(n));
+
+        System.out.println(numSquares1(n));
+
+        System.out.println(numSquares2(n));
     }
 }
