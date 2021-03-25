@@ -9,20 +9,16 @@ package com.example.bishimianshi.banyu;
 public class T3 {
 
     public static int maxChunksToSorted(int[] arr) {
-
-        if (arr.length == 0) {
-            return 0;
-        }
-        // 一种简单算法 只是按照一定的规则进行了分块  这些块能不能再组成排序后的数组不知道
-        int num = 1;
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] >= arr[i - 1]) {
-                num++;
+        int ans = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            max = Math.max(max, arr[i]);
+//            从最前面开始的这个块的最大值等于当前下标  说明又能分出一个块来
+            if (max == i) {
+                ans++;
             }
         }
-
-        return num;
-
+        return ans;
     }
 
     public static void main(String[] args) {
