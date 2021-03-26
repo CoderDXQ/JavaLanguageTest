@@ -13,6 +13,7 @@ public class test {
         int a = Integer.parseInt(str);
         a--;
         System.out.println(a);
+
     }
 
 
