@@ -21,8 +21,13 @@ public class lt48 {
         }
     }
 
-    //    实际地转换一下数组
+    //    实际地转换一下数组 原地旋转  这是一种原地算法
     public static void rotate1(int[][] matrix) {
+
+    }
+
+    //    两次翻转代替旋转
+    public static void rotate2(int[][] matrix) {
 
     }
 
