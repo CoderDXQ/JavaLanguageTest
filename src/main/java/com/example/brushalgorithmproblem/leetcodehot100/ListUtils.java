@@ -25,6 +25,7 @@ public class ListUtils {
 
     /**
      * 使用整型数组创建链表
+     * 创建的链表是依次顺序相连的
      *
      * @param array
      * @return
@@ -38,4 +39,19 @@ public class ListUtils {
         }
         return pHead;
     }
+
+    /**
+     * 根据数值返回链表结点
+     *
+     * @param i
+     * @return
+     */
+    public static ListNode find(ListNode head, int i) {
+        while (head != null && head.val != i) {
+            head = head.next;
+        }
+        return head;
+    }
+
+
 }
