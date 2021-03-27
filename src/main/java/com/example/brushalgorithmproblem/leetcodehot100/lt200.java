@@ -8,6 +8,8 @@ import java.util.Queue;
  * @version 1.0
  * @date 2021/3/26 9:28 下午
  */
+
+//岛屿数量
 public class lt200 {
 
     public static int result;

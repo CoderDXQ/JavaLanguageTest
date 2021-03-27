@@ -1,7 +1,5 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
-import com.example.javalanguaguetest.callback.two_writing_method_of_callback2.Li;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +8,7 @@ import java.util.Set;
  * @version 1.0
  * @date 2021/3/26 6:42 下午
  */
+//环形链表II
 public class lt142 {
 
     //    快慢指针  还有一种方法是记录链表的结点，但是需要额外的存储空间

@@ -8,6 +8,8 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/26 9:27 下午
  */
+
+//最小栈
 public class lt155 {
 
     Stack<Integer> stack;
