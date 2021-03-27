@@ -48,6 +48,7 @@ public class lt287 {
     }
 
 
+    //    这是最快的方法
     //    重复必定有环 使用快慢指针找出环的入口即可 Floyd判圈算法
     public static int findDuplicate2(int[] nums) {
         int slow = 0;
