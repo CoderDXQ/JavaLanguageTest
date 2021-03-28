@@ -2,6 +2,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * @author Duan Xiangqing
@@ -12,7 +13,7 @@ import java.util.LinkedList;
 public class lt739 {
 
 
-    //    单调栈
+    //    单调栈 栈里存放下标
     public static int[] dailyTemperatures(int[] T) {
         int len = T.length;
         int[] ans = new int[len];
@@ -31,7 +32,33 @@ public class lt739 {
         return ans;
     }
 
+    public static int[] dailyTemperatures1(int[] T) {
+        int len = T.length;
+        int[] ans = new int[len];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < len; i++) {
+            while (!stack.isEmpty() && T[i] > T[stack.peek()]) {
+                int out = stack.pop();
+                ans[out] = i - out;
+            }
+            stack.push(i);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
+
+        int[] T = new int[]{73, 74, 75, 71, 69, 72, 76, 73};
+
+        for (int i : dailyTemperatures(T)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i : dailyTemperatures1(T)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
 
     }
 }
