@@ -1,4 +1,4 @@
-package com.example.brushalgorithmproblem.leetcodehot100;
+package com.example.brushalgorithmproblem;
 
 import java.util.HashSet;
 import java.util.Set;
