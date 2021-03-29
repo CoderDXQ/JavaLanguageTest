@@ -77,6 +77,7 @@ public class lt416 {
         boolean[] dp = new boolean[target + 1];
         dp[0] = true;
         for (int i = 0; i < n; i++) {
+//            只能是从大到小遍历  因为如果从小到大遍历的话某个dp[j - nums[i]]的值可能已经添加过第i个物品了
             for (int j = target; j >= nums[i]; j--) {
                 dp[j] |= dp[j - nums[i]];
             }
