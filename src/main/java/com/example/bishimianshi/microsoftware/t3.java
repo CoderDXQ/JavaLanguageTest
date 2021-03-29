@@ -1,7 +1,5 @@
 package com.example.bishimianshi.microsoftware;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.util.HashMap;
 
 /**
@@ -34,6 +32,7 @@ public class t3 {
         return res;
     }
 
+    //    并查集
     static class UnionFind {
         private int[] parent;
         private int[] rank;
@@ -66,10 +65,26 @@ public class t3 {
         }
     }
 
-    public static void main(String[] args) {
-        int[] A = new int[]{7, 1, 11, 8, 4, 10};
-        System.out.println(solution(A, 8));
+    //    建立数学模型 简化思路
+    public static int solution1(int[] A, int M) {
+        int result = 0;
+        HashMap<Integer, Integer> set = new HashMap<>();
+        for (int i : A) {
+            set.put(i % M, set.getOrDefault(i % M, 0) + 1);
+        }
 
+        for (int i = 0; i < set.size(); i++) {
+            result = Math.max(result, set.getOrDefault(i, 0));
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int[] A = new int[]{-3, -2, 1, 0, 8, 7, 1};
+        System.out.println(solution(A, 8));
+        System.out.println(solution1(A, 8));
 
     }
 }
