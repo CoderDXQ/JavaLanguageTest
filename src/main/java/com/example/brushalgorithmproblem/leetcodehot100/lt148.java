@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/30 9:34 上午
  */
+//排序链表
 public class lt148 {
 
     public static ListNode sortList(ListNode head) {

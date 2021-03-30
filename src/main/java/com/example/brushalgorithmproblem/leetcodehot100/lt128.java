@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/30 9:29 上午
  */
+//最长连续序列
 public class lt128 {
 
     public static int longestConsecutive(int[] nums) {

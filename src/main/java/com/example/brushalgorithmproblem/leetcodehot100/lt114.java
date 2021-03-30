@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/3/30 9:20 上午
  */
+//二叉树展开为链表
 public class lt114 {
 
     public static void flatten(TreeNode root) {

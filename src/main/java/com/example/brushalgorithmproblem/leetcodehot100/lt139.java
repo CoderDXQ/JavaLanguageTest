@@ -1,7 +1,5 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
-import com.sun.org.apache.bcel.internal.generic.LUSHR;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +8,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/3/30 9:30 上午
  */
+//单词拆分
 public class lt139 {
 
     public static boolean wordBreak(String s, List<String> wordDict) {
