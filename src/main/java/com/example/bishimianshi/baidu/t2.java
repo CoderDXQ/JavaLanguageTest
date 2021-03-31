@@ -14,8 +14,6 @@ public class t2 {
      * p>=50 去前面最大的那些
      * p<0  ???
      * p<50 ???
-     *
-     * @param args
      */
 
     public static String hhh(int n, int p, int[] a) {
