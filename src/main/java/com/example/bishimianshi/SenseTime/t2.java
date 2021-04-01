@@ -27,19 +27,24 @@ public class t2 {
                 if (num.charAt(i) == oo.num.charAt(i)) {
                     continue;
                 }
+//                从小到大排就把成员变量放前面
                 return Integer.valueOf(num.charAt(i)) - Integer.valueOf(oo.num.charAt(i));
             }
-//            ???
-            return 1;
+//            从小到大排就把成员变量放前面
+            return num.length() - oo.num.length();
         }
     }
 
+    public static Node[] nodes;
+
     public static void domain(int[] nums) {
-        Node[] nodes = new Node[nums.length];
-        for (int i = 0; i < nums.length - 1; i++) {
+
+        nodes = new Node[nums.length];
+        for (int i = 0; i < nums.length; i++) {
             nodes[i] = new Node(String.valueOf(nums[i]));
         }
 
+//        调用自定义排序
         Arrays.sort(nodes);
 
         for (Node node : nodes) {
@@ -48,7 +53,6 @@ public class t2 {
 
         System.out.println();
     }
-
 
     public static void main(String[] args) {
 
