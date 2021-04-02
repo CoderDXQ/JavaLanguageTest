@@ -30,6 +30,7 @@ public class Tips {
 
     /**
      * 二维数组排序
+     * 自定义paixv
      */
     @Test
     public void test1() {
@@ -79,8 +80,68 @@ public class Tips {
     }
 
 
+    /**
+     * 下一个排列
+     * 返回一个数组
+     *
+     * @param nums
+     * @return
+     */
+    public static int[] nextPermutation(int[] nums) {
 
+        int k = nums.length - 2;
+//        寻找最后边的第一个升序对 此时就找到了较小数
+        while (k >= 0 && nums[k] >= nums[k + 1]) {
+            k--;
+        }
 
+//        找到右边的较大数
+        if (k > -1) {
+//        k的右边是一个降序序列
+            int j = nums.length - 1;
+            while (j > 0 && nums[j] <= nums[k]) {
+                j--;
+            }
+            swap(nums, k, j);
+        }
+
+        reverse(nums, k + 1);
+
+        return nums;
+//        for (int i : nums) {
+//            System.out.print(i + " ");
+//        }
+//        System.out.println();
+
+    }
+
+    /**
+     * 交换数组中的两个数
+     *
+     * @param nums
+     * @param i
+     * @param j
+     */
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    /**
+     * 实现数组某个下标之后部分的翻转
+     *
+     * @param nums
+     * @param i
+     */
+    public static void reverse(int[] nums, int i) {
+        int left = i, right = nums.length - 1;
+        while (left < right) {
+            swap(nums, left, right);
+            left++;
+            right--;
+        }
+    }
 
 
 }
