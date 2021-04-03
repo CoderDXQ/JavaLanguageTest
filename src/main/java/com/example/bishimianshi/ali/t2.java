@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class t2 {
 
 
-//    ???java标准输出的控制？？？
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
