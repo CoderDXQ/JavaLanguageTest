@@ -54,7 +54,7 @@ public class lt494 {
         return S > 1000 ? 0 : dp[nums.length - 1][S + 1000];
     }
 
-    //    动态规划 ????
+    //    动态规划
     public static int findTargetSumWays(int[] nums, int S) {
 
         int[][] dp = new int[nums.length][2001];
@@ -64,20 +64,37 @@ public class lt494 {
 
         for (int i = 1; i < nums.length; i++) {
             for (int sum = -1000; sum <= 1000; sum++) {
-                if (sum - nums[i] + 1000 > 0 && sum + nums[i] + 1000 < 2001) {
-                    dp[i][sum + 1000] = dp[i - 1][sum - nums[i] + 1000] + dp[i - 1][sum + nums[i] + 1000];
-                }
+
+//                巧妙的数组下标越界处理
+                int p = sum - nums[i] + 1000 < 0 ? 0 : dp[i - 1][sum - nums[i] + 1000];
+                int q = sum + nums[i] + 1000 > 2000 ? 0 : dp[i - 1][sum + nums[i] + 1000];
+
+                dp[i][sum + 1000] = p + q;
 
             }
-
         }
         return S > 1000 ? 0 : dp[nums.length - 1][S + 1000];
     }
 
     //    动态规划 空间优化
     public static int findTargetSumWays3(int[] nums, int S) {
+        int[] dp = new int[2001];
+        dp[nums[0] + 1000] += 1;
+        dp[-nums[0] + 1000] += 1;
 
-        return 0;
+        for (int i = 1; i < nums.length; i++) {
+            int[] next = new int[2001];
+            for (int sum = -1000; sum <= 1000; sum++) {
+                if (dp[sum + 1000] > 0) {
+                    next[sum + nums[i] + 1000] += dp[sum + 1000];
+                    next[sum - nums[i] + 1000] += dp[sum + 1000];
+                }
+
+            }
+            dp = next;
+        }
+
+        return S > 1000 ? 0 : dp[S + 1000];
     }
 
     public static void main(String[] args) {
