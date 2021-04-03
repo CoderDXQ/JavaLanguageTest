@@ -50,6 +50,8 @@ public class t1 {
         for (int i = n - 2; i >= 0; i--) {
             int newVal = arr[i] + 1;
             int oldVal = arr[i];
+//            从后面开始  后面的先+1 给前面的让出来
+//            可以认为是一种贪心策略 尽可能多的使用+1的权利
             if (!set.contains(newVal)) {
                 arr[i]++;
                 set.add(arr[i]);
@@ -77,7 +79,7 @@ public class t1 {
             }
 
 //            test(nums);
-            System.out.println(solution(nums,n));
+            System.out.println(solution(nums, n));
 
 //            for (int i = 0; i < n; i++) {
 //                System.out.print(nums[i]+" ");
