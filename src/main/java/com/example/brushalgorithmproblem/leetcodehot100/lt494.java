@@ -11,54 +11,81 @@ public class lt494 {
 
     public static int result = 0;
 
-    //    nums的和与s的差 这个差的一半就是用"-"修饰的数的和  这样问题就转化为了在数组中搜索的情况
-    public static int findTargetSumWays(int[] nums, int S) {
-
-        if (nums[0] == S && nums.length == 1) {
-            return 1;
-        }
-
-        int he = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            he += nums[i];
-        }
-
-        he = (he - S) >> 1;
-
-        int num = 0;
-        for (int i = 0; i < nums[i]; i++) {
-            if (nums[i] == 0) {
-                num++;
-            }
-        }
-
-        int tiao0 = (int) Math.pow(2, num);
-
+    //    枚举搜索
+    public static int findTargetSumWays1(int[] nums, int S) {
         result = 0;
-        find(nums, he);
-
-        return result * tiao0;
+        dfs(nums, S, 0, 0);
+        return result;
     }
 
-    public static void find(int[] nums, int he) {
+    public static void dfs(int[] nums, int S, int sum, int index) {
+        if (sum == S && index == nums.length) {
+            result++;
+            return;
+        }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                if (he == nums[i]) {
-                    result++;
-                } else if (he > nums[i]) {
-                    find(nums, he - nums[i]);
+        if (index == nums.length) {
+            return;
+        }
+
+        dfs(nums, S, sum + nums[index], index + 1);
+        dfs(nums, S, sum - nums[index], index + 1);
+    }
+
+    //    动态规划 背包问题
+    public static int findTargetSumWays2(int[] nums, int S) {
+//        横坐标是商品  纵坐标是总和
+        int[][] dp = new int[nums.length][2001];
+//        初始化 防止刚开始好多零的情况
+        dp[0][nums[0] + 1000] += 1;
+        dp[0][-nums[0] + 1000] += 1;
+
+
+        for (int i = 1; i < nums.length; i++) {
+            for (int sum = -1000; sum <= 1000; sum++) {
+//            剪枝
+                if (dp[i - 1][sum + 1000] > 0) {
+                    dp[i][sum + nums[i] + 1000] += dp[i - 1][sum + 1000];
+                    dp[i][sum - nums[i] + 1000] += dp[i - 1][sum + 1000];
                 }
             }
         }
 
+        return S > 1000 ? 0 : dp[nums.length - 1][S + 1000];
     }
 
+    //    动态规划 ????
+    public static int findTargetSumWays(int[] nums, int S) {
+
+        int[][] dp = new int[nums.length][2001];
+
+        dp[0][nums[0] + 1000] += 1;
+        dp[0][-nums[0] + 1000] += 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            for (int sum = -1000; sum <= 1000; sum++) {
+                if (sum - nums[i] + 1000 > 0 && sum + nums[i] + 1000 < 2001) {
+                    dp[i][sum + 1000] = dp[i - 1][sum - nums[i] + 1000] + dp[i - 1][sum + nums[i] + 1000];
+                }
+
+            }
+
+        }
+        return S > 1000 ? 0 : dp[nums.length - 1][S + 1000];
+    }
+
+    //    动态规划 空间优化
+    public static int findTargetSumWays3(int[] nums, int S) {
+
+        return 0;
+    }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 0};
-        int s = 1;
+        int[] nums = new int[]{1, 999};
+        int s = 998;
         System.out.println(findTargetSumWays(nums, s));
+        System.out.println(findTargetSumWays1(nums, s));
+        System.out.println(findTargetSumWays2(nums, s));
+        System.out.println(findTargetSumWays3(nums, s));
     }
 }
