@@ -18,6 +18,8 @@ public class lt198 {
         int[] nums = new int[]{1, 2, 3, 1};
         System.out.println(rob(nums));
 
+
+
     }
 
 }
