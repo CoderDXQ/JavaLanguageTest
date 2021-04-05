@@ -1,5 +1,7 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
+import java.util.concurrent.locks.Lock;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -13,6 +15,7 @@ public class lt581 {
     }
 
     public static void main(String[] args) {
+
 
     }
 
