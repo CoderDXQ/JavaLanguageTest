@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/4/4 8:39 下午
  */
+//实现Trie(前缀树)
 public class lt208 {
 
     /**

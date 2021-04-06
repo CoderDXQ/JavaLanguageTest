@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
  * @version 1.0
  * @date 2021/4/4 8:38 下午
  */
+//课程表
 public class lt207 {
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
