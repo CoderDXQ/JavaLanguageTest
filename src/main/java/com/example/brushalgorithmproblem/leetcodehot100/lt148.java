@@ -1,6 +1,7 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * @author Duan Xiangqing
@@ -16,15 +17,20 @@ public class lt148 {
     }
 
     public static ListNode sortList(ListNode head, ListNode tail) {
-        if (head == null || head.next == null) {
+        if (head == null) {
+            return head;
+        }
+        if (head.next == tail) {
+//            截断操作
+            head.next = null;
             return head;
         }
         ListNode slow = head, fast = head;
 //        快慢指针中间分
-        while (fast != null) {
+        while (fast != tail) {
             slow = slow.next;
             fast = fast.next;
-            if (fast != null) {
+            if (fast != tail) {
                 fast = fast.next;
             }
         }
@@ -43,11 +49,12 @@ public class lt148 {
         while (temp1 != null && temp2 != null) {
             if (temp1.val <= temp2.val) {
                 temp.next = temp1;
-                temp = temp.next;
+                temp1 = temp1.next;
             } else {
                 temp.next = temp2;
-                temp = temp.next;
+                temp2 = temp2.next;
             }
+            temp = temp.next;
         }
         if (temp1 != null) {
             temp.next = temp1;
@@ -61,7 +68,28 @@ public class lt148 {
     //    优先队列
     public static ListNode sortList1(ListNode head) {
 
-        return null;
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        ListNode node = head;
+        while (node != null) {
+            queue.add(node.val);
+            node = node.next;
+        }
+
+//        引导结点
+        ListNode result = new ListNode(0);
+        node = result;
+
+        while (!queue.isEmpty()) {
+            ListNode temp = new ListNode(queue.poll());
+            node.next = temp;
+            node = node.next;
+        }
+        return result.next;
     }
 
     public static void main(String[] args) {
