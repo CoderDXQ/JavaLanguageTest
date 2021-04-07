@@ -106,7 +106,7 @@ public class SkipList<T extends Comparable<? super T>> implements RedisObj {
             update[i].getLevel()[i].setSpan(++span);
         }
 
-//        继续遍历update[] 进行插入和更新操作 在这些高度的结点（ 高度<levelHeight）既需要更新sapn值 又需要更新forward指针
+//        继续遍历update[] 进行插入和更新操作 在这些高度的结点（ 高度<levelHeight）既需要更新span值 又需要更新forward指针
         for (; i >= 0; --i) {
             SkipListLevel pre = update[i].getLevel()[i];
 //            将target结点插入update[i]和temp之间

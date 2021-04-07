@@ -1,4 +1,4 @@
-package com.example.bishimianshi.lock.deadlock;
+package com.example.bishimianshi.lock;
 
 /**
  * @author Duan Xiangqing
