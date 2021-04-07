@@ -1,4 +1,4 @@
-package com.example.writtenexaminationandinterview.alternatePrint;
+package com.example.writtenexaminationandinterview.multithread.alternatePrint;
 
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;

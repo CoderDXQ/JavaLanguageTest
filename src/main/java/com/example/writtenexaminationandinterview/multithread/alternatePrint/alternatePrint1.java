@@ -1,4 +1,4 @@
-package com.example.writtenexaminationandinterview.alternatePrint;
+package com.example.writtenexaminationandinterview.multithread.alternatePrint;
 
 /**
  * @author Duan Xiangqing
