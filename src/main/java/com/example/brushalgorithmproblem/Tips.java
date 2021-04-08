@@ -2,9 +2,7 @@ package com.example.brushalgorithmproblem;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,6 +23,34 @@ public class Tips {
     public void test() {
         int[] jilu = new int[]{};
         Integer[] jisuan = IntStream.of(jilu).boxed().collect(Collectors.toList()).toArray(new Integer[0]);
+    }
+
+    /**
+     * List与数组互相转化
+     */
+    @Test
+    public void test3() {
+
+        String[] sts = new String[]{"a", "b", "c"};
+        List<String> list = Arrays.asList(sts);
+        for (String s : list) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+
+        List<Integer> l = new ArrayList<>();
+        l.add(1);
+        l.add(2);
+        l.add(3);
+//        第一  必须确定数组的长度
+//        第二 toArray()方法中传入数组变量
+        Integer[] nums = new Integer[l.size()];
+        nums = l.toArray(nums);
+        for (int i : nums) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
     }
 
 
