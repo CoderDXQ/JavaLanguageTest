@@ -44,8 +44,9 @@ public class Tips {
         l.add(3);
 //        第一  必须确定数组的长度
 //        第二 toArray()方法中传入数组变量
-        Integer[] nums = new Integer[l.size()];
-        nums = l.toArray(nums);
+//        Integer[] nums = new Integer[l.size()];
+//        nums = l.toArray(nums);
+        Integer[] nums = l.toArray(new Integer[l.size()]);
         for (int i : nums) {
             System.out.print(i + " ");
         }
