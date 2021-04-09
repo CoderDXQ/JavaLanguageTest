@@ -9,14 +9,16 @@ package com.example.writtenexaminationandinterview.singleton;
 //单例模式 双重校验锁
 public class Singleton {
 
+//    单例必须是静态的 否则无法保证全局唯一
     //    私有的 静态的 volatile修饰
 //    volatile的作用是禁止指令重排序
     private static volatile Singleton instance;
 
-    //    构造方法
+    //    构造方法 构造方法是public
     public Singleton() {
     }
 
+//    get方法必须是静态的  否则无法保证全局可以得到单例
     public static Object getInstance() {
         if (instance == null) {
 //            直接锁住class对象
