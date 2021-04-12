@@ -76,6 +76,7 @@ public class MyBlockingQueue<T> {
             consumer.signalAll();
             e.printStackTrace();
         } finally {
+//            无论如何都会在最后执行
             lock.unlock();
         }
         return queue.removeFirst();
