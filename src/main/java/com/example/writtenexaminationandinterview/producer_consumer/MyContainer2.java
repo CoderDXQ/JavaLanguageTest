@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 使用Lock和Condition来实现
  * Condition可以用来指定唤醒哪个线程
- *
+ * 实际上自己实现了一个阻塞队列
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/4/8 7:10 下午
