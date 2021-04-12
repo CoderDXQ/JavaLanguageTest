@@ -39,6 +39,7 @@ public class MyBlockingQueue<T> {
 
         try {
             while (size >= capacity) {
+                System.out.println(Thread.currentThread() + "add " + size);
 //                阻塞生产者
                 producer.await();
             }
@@ -48,6 +49,8 @@ public class MyBlockingQueue<T> {
 //            唤醒消费者
             consumer.signalAll();
         } catch (InterruptedException e) {
+//            唤醒生产者 避免阻塞
+            producer.signalAll();
             e.printStackTrace();
         } finally {
             lock.unlock();
@@ -60,11 +63,17 @@ public class MyBlockingQueue<T> {
 
         try {
             while (size == 0) {
+                System.out.println(Thread.currentThread() + "get " + size);
                 consumer.await();
             }
+            System.out.println(Thread.currentThread() + "get " + size);
             size--;
+
+//            producer.signal();
             producer.signalAll();
         } catch (InterruptedException e) {
+//            唤醒消费者
+            consumer.signalAll();
             e.printStackTrace();
         } finally {
             lock.unlock();
@@ -87,14 +96,25 @@ public class MyBlockingQueue<T> {
             }
         });
 
+        Thread t3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 10; i < 20; i++) {
+                    queue.add(i);
+                    System.out.println("生产：" + i);
+                }
+            }
+        });
+
         t1.start();
+        t3.start();
 
         Thread.sleep(500);
 
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 20; i++) {
                     System.out.println("消费：" + queue.get());
                 }
             }
