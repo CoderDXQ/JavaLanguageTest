@@ -1,47 +1,79 @@
 package com.example.writtenexaminationandinterview.gongsibishi.wangyi;
 
 
-/**
- * @author Duan Xiangqing
- * @version 1.0
- * @date 2021/4/10 2:53 下午
- */
 public class t2 {
 
-    public static ListNode minusList(ListNode minuendList, ListNode subtrahendList) {
-        // write code here
+    public static class ListNode {
+        int val;
+        ListNode next;
 
-
-        return null;
-    }
-
-    //    反转链表
-    public static void Reverse(ListNode head) {
-
-        ListNode pre = null;
-        ListNode prepre = null;
-        ListNode slow = head;
-        while (slow != null) {
-            pre = slow;
-            slow = slow.next;
-            pre.next = prepre;
-            prepre = pre;
+        public ListNode(int val) {
+            this.val = val;
+            this.next = null;
         }
 
+
+        @Override
+        public String toString() {
+            return "ListNode{" +
+                    "val=" + val +
+                    ", next=" + next +
+                    '}';
+        }
+    }
+
+    public static ListNode create(int[] array) {
+        ListNode pHead = new ListNode(array[0]);
+        ListNode cur = pHead;
+        for (int i = 1; i < array.length; i++) {
+            cur.next = new ListNode(array[i]);
+            cur = cur.next;
+        }
+        return pHead;
+    }
+
+    public static void exe(ListNode l1, ListNode l2) {
+
+        reverse(l1);
+
+        System.out.println();
+    }
+
+    //    加法
+    public static void add() {
+
+    }
+
+    //    减法
+    public static void sub() {
+
     }
 
 
+    //    检查一下是否成功？？？
+    public static void reverse(ListNode head) {
+
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode newhead = null;
+
+        while (cur != null) {
+            pre = cur;
+            cur = cur.next;
+            pre.next = newhead;
+            newhead = pre;
+        }
+
+        System.out.println();
+
+    }
+
     public static void main(String[] args) {
+        int[] l1 = new int[]{1, 2, 4};
 
-        //{1, 2, 4},{-1, 2, 3}
-        int[] num1 = new int[]{1, 2, 4};
-        int[] num2 = new int[]{-1, 2, 3};
+        int[] l2 = new int[]{-1, 2, 3};
 
-        ListNode l1 = ListUtils.create(num1);
-        ListNode l2 = ListUtils.create(num2);
-
-        Reverse(l1);
-        ListUtils.print(l1);
+        exe(create(l1), create(l2));
 
 
     }
