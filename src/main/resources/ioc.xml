@@ -1,4 +1,5 @@
 <beans>
+    <!--    两个bean-->
     <bean id="wheel" class="com.example.writtenexaminationandinterview.myIOC.Wheel">
         <property name="brand" value="Michelin"/>
         <property name="specification" value="265/60 R18"/>

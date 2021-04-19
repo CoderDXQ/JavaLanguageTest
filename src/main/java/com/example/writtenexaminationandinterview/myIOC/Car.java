@@ -5,6 +5,7 @@ package com.example.writtenexaminationandinterview.myIOC;
  * @version 1.0
  * @date 2021/4/19 10:29 下午
  */
+//定义实体类
 public class Car {
 
     private String name;

@@ -9,7 +9,7 @@ public class Test {
 
     @org.junit.Test
     public void getBean() throws Exception {
-//        不能有汉字
+//        不能有汉字 从编译后的文件中获取xml文件
         String location = SimpleIOC.class.getClassLoader().getResource("ioc.xml").getFile();
         SimpleIOC bf = new SimpleIOC(location);
         Wheel wheel = (Wheel) bf.getBean("wheel");

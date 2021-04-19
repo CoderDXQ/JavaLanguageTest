@@ -23,11 +23,12 @@ public class SimpleIOC {
     //    容器
     private Map<String, Object> beanMap = new HashMap<>();
 
-    //    构造方法
+    //    构造方法 在构造方法中加载xml文件的内容
     public SimpleIOC(String location) throws Exception {
         loadBean(location);
     }
 
+    //    从容器中获取bean
     public Object getBean(String name) {
         Object bean = beanMap.get(name);
         if (bean == null) {
@@ -45,7 +46,9 @@ public class SimpleIOC {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = factory.newDocumentBuilder();
         Document doc = documentBuilder.parse(inputStream);
+//        读取标签<beans>
         Element root = doc.getDocumentElement();
+//        读取所有<bean>
         NodeList nodes = root.getChildNodes();
 
 //        遍历<bean>标签
@@ -85,12 +88,14 @@ public class SimpleIOC {
                         declaredField.setAccessible(true);
 
                         if (value != null && value.length() > 0) {
+//                            将属性值填充到相关字段中
                             declaredField.set(bean, value);
                         } else {
                             String ref = propertyElement.getAttribute("ref");
                             if (ref == null || ref.length() == 0) {
                                 throw new IllegalArgumentException("ref config err");
                             }
+//                            将引用填充到相关字段中
                             declaredField.set(bean, getBean(ref));
                         }
                     }
@@ -98,9 +103,7 @@ public class SimpleIOC {
 //                将bean注册到bean容器
                 registerBean(id, bean);
             }
-
         }
-
     }
 
     //    放入容器
