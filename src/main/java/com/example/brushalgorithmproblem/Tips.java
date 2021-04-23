@@ -170,5 +170,14 @@ public class Tips {
         }
     }
 
+    /**
+     * 链表翻转
+     *
+     * @param list
+     */
+    public static void reverse(List list) {
+        Collections.reverse(list);
+    }
+
 
 }
