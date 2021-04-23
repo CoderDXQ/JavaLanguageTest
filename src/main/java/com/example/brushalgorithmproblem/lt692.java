@@ -66,14 +66,6 @@ public class lt692 {
         return result;
     }
 
-    //    前缀树
-    public static List<String> topKFrequent2(String[] words, int k) {
-
-
-        return null;
-    }
-
-
     public static void main(String[] args) {
 
         String[] s1 = new String[]{"i", "love", "leetcode", "i", "love", "coding"};
@@ -95,16 +87,6 @@ public class lt692 {
         System.out.println();
 
         for (String s : topKFrequent1(s2, 4)) {
-            System.out.println(s + " ");
-        }
-        System.out.println();
-
-        for (String s : topKFrequent2(s1, 2)) {
-            System.out.println(s + " ");
-        }
-        System.out.println();
-
-        for (String s : topKFrequent2(s2, 4)) {
             System.out.println(s + " ");
         }
         System.out.println();
