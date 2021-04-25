@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/4/15 7:13 下午
  */
+//https://blog.csdn.net/qq_38993096/article/details/115742708
 public class t2 {
 
 
