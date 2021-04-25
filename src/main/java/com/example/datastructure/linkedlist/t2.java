@@ -1,6 +1,7 @@
 package com.example.datastructure.linkedlist;
 
 //使用链表做有符号的加减法
+//https://blog.csdn.net/qq_38993096/article/details/115594972
 public class t2 {
 
     public static class ListNode {
