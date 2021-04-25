@@ -15,6 +15,7 @@ import java.util.*;
 public class t1 {
 
 
+    //    以输入"EOF"结束
     //    类似于倒排索引的思想
     public static void main(String[] args) {
 
@@ -23,7 +24,13 @@ public class t1 {
 //        倒排索引表 将依赖关系转化为影响关系
         HashMap<String, List<String>> hashMap = new HashMap<>();
         while (in.hasNext()) {
+//            读入的时候顺便分组
             String[] nums = in.nextLine().split(",");
+
+            if (nums[0].equals("EOF")) {
+                break;
+            }
+
             for (int i = 1; i < nums.length; i++) {
                 if (hashMap.containsKey(nums[i])) {
                     List<String> l = hashMap.get(nums[i]);
@@ -42,27 +49,30 @@ public class t1 {
         queue.add(start);
 //        去重
         Set<String> set = new HashSet<>();
+        set.contains(start);
+
         int sum = 0;
 
         while (!queue.isEmpty()) {
             String s = queue.poll();
-            if (!set.contains(s)) {
-                sum += Integer.valueOf(s);
-                set.add(s);
-                List<String> l = hashMap.get(s);
-                for (String ss : l) {
-                    if (!set.contains(ss)) {
-                        set.add(ss);
-                        queue.add(ss);
-                    }
+
+            List<String> l = hashMap.get(s);
+
+            if (l == null) {
+                break;
+            }
+
+            for (String ss : l) {
+                if (!set.contains(ss)) {
+                    queue.add(ss);
+                    set.add(ss);
+                    sum += Integer.valueOf(ss);
                 }
             }
 
         }
 
-
         System.out.println(sum);
-
 
     }
 
@@ -75,3 +85,4 @@ public class t1 {
 //6,4,2
 //8,9
 //10
+//EOF
