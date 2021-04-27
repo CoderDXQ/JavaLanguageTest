@@ -36,6 +36,7 @@ public class Redwars {
         List<Double> packets = new ArrayList<>();
         Random random = new Random();
         Set<Double> points = new TreeSet<>();
+//        生成线段上截取的点
         while (points.size() < person - 1) {
 //            找到n-1个点 random.nextDouble()的作用是生成1以内的小数
             Double num = Math.round(random.nextDouble() * (money - 1) * 100) / 100.0;
