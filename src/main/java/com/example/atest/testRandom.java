@@ -14,7 +14,8 @@ public class testRandom {
 
 //        生成1以内的小数
         for (int i = 0; i < 5; i++) {
-            System.out.println(random.nextDouble());
+//            System.out.println(random.nextDouble());
+            System.out.println(random.nextInt(2));
         }
     }
 

@@ -1,5 +1,7 @@
 package com.example.writtenexaminationandinterview.redwars;
 
+import java.util.*;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -8,17 +10,63 @@ package com.example.writtenexaminationandinterview.redwars;
 //真实发抢红包模拟
 public class DouRedWars1 {
 
-    class fa {
+    public static double sum = 0;
+
+    static class Fa {
+
+        private double money;
+        private int person;
+
+        private List<Double> list;
+
+        public Fa(int person, double money) {
+            this.money = money;
+            this.person = person;
+            list = Redwars.gen(person, money);
+        }
 
     }
 
 
-    class qiang {
+    static class Qiang implements Runnable {
+
+        Fa fa;
+
+        private List<Double> list;
+
+        public Qiang(Fa fa) {
+            list = fa.list;
+        }
+
+        @Override
+        public void run() {
+            if (list.isEmpty()) {
+                System.out.println(Thread.currentThread().getName() + "抢红包失败！");
+            } else {
+//                随机取数
+                double num = list.remove(new Random().nextInt(list.size()));
+                sum += num;
+                System.out.println(Thread.currentThread().getName() + "抢到" + num + "元");
+            }
+        }
 
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        int person = 10;
+        double money = 67.89;
+
+        Fa fa = new Fa(person, money);
+
+        for (int i = 0; i < 15; i++) {
+            new Thread(new Qiang(fa)).start();
+        }
+
+        Thread.sleep(500);
+
+        System.out.println("sum=" + sum);
 
     }
 
