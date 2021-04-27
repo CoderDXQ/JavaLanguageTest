@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * @date 2021/4/27 3:14 下午
  */
 //REFERENCE:https://blog.csdn.net/qq_31709249/article/details/103208057
-//哈夫曼树常用于压缩
+//哈夫曼树常用于压缩 继承线索二叉树  方便在树上的一些操作
 public class HuffmanTree<T extends HuffBaseType> extends LinkClueBinnaryTree<T> {
 
     //    在构造函数中完成一切
@@ -29,6 +29,7 @@ public class HuffmanTree<T extends HuffBaseType> extends LinkClueBinnaryTree<T> 
             }
         });
 
+//        也可以用优先队列代替
         LinkedList<Node<T>> nodeList = new LinkedList<>();
 
 //        存储结点
@@ -37,13 +38,16 @@ public class HuffmanTree<T extends HuffBaseType> extends LinkClueBinnaryTree<T> 
             nodeList.add(node);
         }
 
+//        建树
         while (nodeList.size() > 1) {
 
             Node<T> minNode1 = nodeList.pop();
             Node<T> minNode2 = nodeList.pop();
 
+//            父节点
             HuffBaseType newData = new HuffBaseType(minNode1.getData().id + minNode2.getData().id, minNode1.getData().weight + minNode2.getData().weight);
 
+//            构造父节点
             Node<T> newRoot = new Node(newData);
             newRoot.setlChild(minNode1);
             newRoot.setrChild(minNode2);
@@ -57,7 +61,6 @@ public class HuffmanTree<T extends HuffBaseType> extends LinkClueBinnaryTree<T> 
                     break;
                 }
             }
-
             if (i == nodeList.size()) {
                 nodeList.add(newRoot);
             }
@@ -110,7 +113,10 @@ public class HuffmanTree<T extends HuffBaseType> extends LinkClueBinnaryTree<T> 
 
 //        在构造函数中就会进行建树的操作
         HuffmanTree<HuffBaseType> huffmanTree = new HuffmanTree<>(datas);
+//        哈夫曼树继承的线索二叉树中的输出方法
         huffmanTree.print(3);
+        System.out.println();
+        System.out.println("********************************************");
         huffmanTree.printHuffCode();
 
     }

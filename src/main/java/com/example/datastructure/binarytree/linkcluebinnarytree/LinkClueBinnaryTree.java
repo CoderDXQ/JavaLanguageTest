@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/4/27 3:39 下午
  */
+//线索二叉树
 public class LinkClueBinnaryTree<T> {
 
     public class Node<T> {
