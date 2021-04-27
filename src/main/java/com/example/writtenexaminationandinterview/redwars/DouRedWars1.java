@@ -39,7 +39,7 @@ public class DouRedWars1 {
         }
 
         @Override
-        public void run() {
+        public synchronized void run() {
             if (list.isEmpty()) {
                 System.out.println(Thread.currentThread().getName() + "抢红包失败！");
             } else {
@@ -55,12 +55,12 @@ public class DouRedWars1 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        int person = 10;
+        int person = 100;
         double money = 67.89;
 
         Fa fa = new Fa(person, money);
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 105; i++) {
             new Thread(new Qiang(fa)).start();
         }
 
