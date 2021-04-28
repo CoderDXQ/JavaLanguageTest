@@ -1,9 +1,6 @@
 package com.example.brushalgorithmproblem;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * @author Duan Xiangqing
@@ -55,10 +52,106 @@ public class lt347 {
         return result;
     }
 
+
+    //    结构体
+    static class Pair {
+        int num;
+        int freq;
+
+        public Pair(int num, int freq) {
+            this.num = num;
+            this.freq = freq;
+        }
+    }
+
     //    基于快速排序
     public static int[] topKFrequent1(int[] nums, int k) {
 
-        return null;
+//        统计频率
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            hashMap.put(nums[i], hashMap.getOrDefault(nums[i], 0) + 1);
+        }
+
+//        构造Pair数组
+        Pair[] pairs = new Pair[hashMap.size()];
+        int i = 0;
+        for (Integer key : hashMap.keySet()) {
+            pairs[i++] = new Pair(key, hashMap.get(key));
+        }
+
+//        调用快排
+        int len = pairs.length;
+        int idx = len - k;
+        quickSort(pairs, 0, len - 1, idx - 1);
+//        截取结果
+        Pair[] topKPairs = Arrays.copyOfRange(pairs, len - k, pairs.length);
+
+//        构造返回结果
+        int[] res = new int[k];
+        i = 0;
+        for (Pair p : topKPairs) {
+            res[i++] = p.num;
+        }
+
+        return res;
+    }
+
+    public static void quickSort(Pair[] pairs, int left, int right, int idx) {
+
+//        排序结束
+        if (left >= right) {
+            return;
+        }
+
+        int mid = partition(pairs, left, right);
+
+//        找到区间
+        if (mid == idx) {
+            return;
+        }
+
+//        个数不够 没有排好
+        if (mid < idx) {
+            quickSort(pairs, mid + 1, right, idx);
+        } else {
+//            个数多了
+            quickSort(pairs, left, mid - 1, idx);
+        }
+
+    }
+
+    public static int partition(Pair[] pair, int left, int right) {
+
+        Pair temp = pair[left];
+        Pair t;
+        int i = left, j = right;
+
+        while (i < j) {
+
+            while (i < j && temp.freq <= pair[j].freq) {
+                j--;
+            }
+
+            while (i < j && temp.freq >= pair[i].freq) {
+                i++;
+            }
+
+            if (i < j) {
+                t = pair[i];
+                pair[i] = pair[j];
+                pair[j] = t;
+            }
+
+        }
+
+//        哨兵就位
+        pair[left] = pair[i];
+        pair[i] = temp;
+
+//        返回已经过滤好的位置
+        return i;
+
     }
 
 
@@ -77,15 +170,17 @@ public class lt347 {
         }
         System.out.println();
 
-//        for (int i : topKFrequent1(nums, k)) {
-//            System.out.print(i + " ");
-//        }
-//        System.out.println();
-//
-//        for (int i : topKFrequent1(new int[]{1}, 1)) {
-//            System.out.print(i + " ");
-//        }
-//        System.out.println();
+        System.out.println();
+
+        for (int i : topKFrequent1(nums, k)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i : topKFrequent1(new int[]{1}, 1)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
 
 
     }
