@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 
 //前k个高频元素
 public class lt347 {
-    //    堆   ???后期用键值对改造一下？？？
+    //    堆
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> hashmap = new HashMap<>();
 
@@ -55,7 +55,7 @@ public class lt347 {
         return result;
     }
 
-    //    基于快速排序？？？
+    //    基于快速排序
     public static int[] topKFrequent1(int[] nums, int k) {
 
         return null;
