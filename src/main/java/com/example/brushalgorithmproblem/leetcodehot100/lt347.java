@@ -1,4 +1,4 @@
-package com.example.brushalgorithmproblem;
+package com.example.brushalgorithmproblem.leetcodehot100;
 
 import java.util.*;
 
