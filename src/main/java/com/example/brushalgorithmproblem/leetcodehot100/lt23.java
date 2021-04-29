@@ -1,7 +1,6 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * @author Duan Xiangqing
@@ -80,7 +79,9 @@ public class lt23 {
 
 //        将所有链表的头结点放到优先队列中
         for (ListNode node : lists) {
-            queue.add(node);
+            if (node != null) {
+                queue.add(node);
+            }
         }
 
         ListNode dummyHead = new ListNode(0);
