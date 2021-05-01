@@ -7,6 +7,7 @@ import java.util.Arrays;
  * @version 1.0
  * @date 2021/2/25 8:00 下午
  */
+//重建二叉树
 public class JZ4 {
 
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {

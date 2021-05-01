@@ -7,6 +7,7 @@ import java.util.Arrays;
  * @version 1.0
  * @date 2021/3/11 11:38 下午
  */
+//矩阵中的路径
 public class JZ65 {
 
     //    可以将二维坐标计算成一位下的坐标或者直接使用一维来计算(后面的太麻烦直接放弃)

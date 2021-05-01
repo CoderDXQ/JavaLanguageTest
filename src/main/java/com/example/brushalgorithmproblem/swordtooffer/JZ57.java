@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/11 11:35 下午
  */
+//二叉树的下一个结点
 public class JZ57 {
 
     public class TreeLinkNode {

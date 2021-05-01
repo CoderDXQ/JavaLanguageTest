@@ -7,6 +7,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/2 5:07 下午
  */
+//包含min函数的栈
 public class JZ20 {
 
     //    伴随栈方法

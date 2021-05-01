@@ -8,6 +8,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/3/11 12:08 下午
  */
+//孩子们的游戏(圆圈中最后剩下的数)
 public class JZ46 {
 
     //    模拟

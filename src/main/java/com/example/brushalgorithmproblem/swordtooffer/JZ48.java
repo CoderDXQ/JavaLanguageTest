@@ -6,6 +6,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/11 1:20 上午
  */
+//不用加减乘除做加法
 public class JZ48 {
     /**
      * 无进位和运算就是按位异或结果，进位就是与运算结果但是需要左移一位，因为进位影响下一位的运算。

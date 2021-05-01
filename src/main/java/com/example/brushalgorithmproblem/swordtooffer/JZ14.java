@@ -6,6 +6,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @date 2020/12/16 12:11 上午
  */
 //快慢指针法
+//链表中倒数第k个结点
 public class JZ14 {
     private static class ListNode {
         int val;

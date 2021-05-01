@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/11 10:38 下午
  */
+//对称的二叉树
 public class JZ58 {
 
     public static boolean isSymmetrical(TreeNode pRoot) {

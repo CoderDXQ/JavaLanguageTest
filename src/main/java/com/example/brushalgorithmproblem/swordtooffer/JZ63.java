@@ -7,6 +7,7 @@ import java.util.*;
  * @version 1.0
  * @date 2021/3/11 11:33 下午
  */
+//数据流中的中位数
 public class JZ63 {
     //    默认是小顶堆 弹出最小值 存放后半截
     public static PriorityQueue<Integer> minQueue = new PriorityQueue<>();

@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/4 7:24 下午
  */
+//剪绳子
 public class JZ67 {
 
     //    数学抽象

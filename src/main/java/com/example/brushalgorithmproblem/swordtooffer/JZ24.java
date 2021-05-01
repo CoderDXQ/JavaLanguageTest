@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @date 2021/3/2 9:32 下午
  */
+//二叉树中和为某一值的路径
 public class JZ24 {
 
     private static ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();

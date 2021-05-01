@@ -8,6 +8,7 @@ import java.util.Set;
  * @version 1.0
  * @date 2021/3/10 10:55 下午
  */
+//数组中重复的数字
 public class JZ50 {
 
     public static int duplicate(int[] numbers) {

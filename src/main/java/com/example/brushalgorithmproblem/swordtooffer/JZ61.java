@@ -8,7 +8,7 @@ import java.util.Queue;
  * @version 1.0
  * @date 2021/3/3 11:33 上午
  */
-
+//序列化二叉树
 public class JZ61 {
 
     public static int index = 0;

@@ -5,7 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/4 1:47 上午
  */
-
+//丑数
 public class JZ33 {
 
 

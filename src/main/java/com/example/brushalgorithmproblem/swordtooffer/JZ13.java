@@ -7,6 +7,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2020/12/17 12:18 上午
  */
+//调整数组顺序使奇数位于偶数前面
 public class JZ13 {
     public static void main(String[] args) {
         JZ13 solution = new JZ13();

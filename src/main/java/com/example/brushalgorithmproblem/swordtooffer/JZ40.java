@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/3 11:16 下午
  */
+//数组中只出现一次的数字
 public class JZ40 {
 
     /**

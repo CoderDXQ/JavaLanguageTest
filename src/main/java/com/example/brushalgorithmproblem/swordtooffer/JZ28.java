@@ -7,6 +7,7 @@ import java.util.HashMap;
  * @version 1.0
  * @date 2021/3/3 10:53 下午
  */
+//数组中出现次数超过一半的数字
 public class JZ28 {
 
     //    排序直接找中间的数 然后验一下个数是否过半

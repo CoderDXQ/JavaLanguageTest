@@ -7,6 +7,7 @@ import java.util.*;
  * @version 1.0
  * @date 2021/3/11 11:36 下午
  */
+//滑动窗口的最大值
 public class JZ64 {
 
     //    单调队列 使用队列来维护窗口  队列中存放元素在数组中的下标

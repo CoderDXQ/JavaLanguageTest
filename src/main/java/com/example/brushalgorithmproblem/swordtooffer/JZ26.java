@@ -10,6 +10,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * 排序树的中序遍历就是有序的
  * 树节点的左右子树指针可以做双向链表节点的前后指针
  */
+//二叉搜索树与双向链表
 public class JZ26 {
 
     //    他的长度是超长的

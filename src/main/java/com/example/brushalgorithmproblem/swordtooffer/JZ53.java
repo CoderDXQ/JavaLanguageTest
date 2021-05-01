@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/12 8:59 下午
  */
+//表示数值的字符串
 public class JZ53 {
 
     /**

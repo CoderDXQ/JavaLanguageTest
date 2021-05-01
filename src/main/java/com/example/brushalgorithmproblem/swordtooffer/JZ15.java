@@ -1,12 +1,11 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
-import java.util.List;
-
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2020/12/17 12:42 上午
  */
+//反转链表
 public class JZ15 {
 
     private static class ListNode {

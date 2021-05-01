@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/1 5:25 下午
  */
+//数值的整数次方
 public class JZ12 {
 
     //    快速幂递归实现

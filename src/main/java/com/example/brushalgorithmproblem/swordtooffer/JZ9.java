@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/2/24 2:07 上午
  */
+//变态跳台阶
 public class JZ9 {
     //    进行数学推理
     //f(n)=f(n-1)+f(n-2)+...+f(2)+f(1+f(0)

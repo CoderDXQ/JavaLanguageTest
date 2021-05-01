@@ -7,6 +7,7 @@ import static java.lang.Integer.min;
  * @version 1.0
  * @date 2021/1/30 12:47 上午
  */
+//旋转数组的最小数字
 public class JZ6 {
 
     //    这个方法比剑指offer上的要巧妙

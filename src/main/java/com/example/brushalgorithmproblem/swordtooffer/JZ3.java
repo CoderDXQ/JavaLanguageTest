@@ -8,6 +8,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2020/12/13 11:50 下午
  */
+//从尾到头打印链表
 public class JZ3 {
 
     private static class ListNode {

@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/2 10:46 下午
  */
+//二叉搜索树的后序遍历序列
 public class JZ23 {
     /**
      * 后序遍历:数组的最后一个元素就是根节点

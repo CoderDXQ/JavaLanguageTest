@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/2/25 7:01 下午
  */
+//跳台阶
 public class JZ8 {
 
     //    递归

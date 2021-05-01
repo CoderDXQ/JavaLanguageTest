@@ -1,12 +1,11 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
-import com.sun.scenario.effect.Merge;
-
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2020/12/21 4:54 下午
  */
+//合并两个排序的链表
 public class JZ16 {
 
     private static class ListNode {

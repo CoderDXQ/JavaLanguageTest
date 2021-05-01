@@ -9,6 +9,7 @@ import java.util.Queue;
  * @version 1.0
  * @date 2021/1/31 5:18 下午
  */
+//二叉树的深度
 public class JZ38 {
     public static class TreeNode {
         String val = null;

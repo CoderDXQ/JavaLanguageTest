@@ -10,6 +10,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/10 8:43 下午
  */
+//按之字形顺序打印二叉树
 public class JZ59 {
 
     //    改写层序遍历

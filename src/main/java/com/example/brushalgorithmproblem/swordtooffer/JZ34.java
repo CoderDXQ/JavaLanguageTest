@@ -8,6 +8,7 @@ import java.util.Map;
  * @version 1.0
  * @date 2020/12/12 4:53 下午
  */
+//第一个只出现一次的字符位置
 public class JZ34 {
     public static void main(String[] args) {
         String str = "google";
@@ -26,7 +27,9 @@ public class JZ34 {
             array[ss[i] - 'A']++;
         }
         for (int i = 0; i < ss.length; i++) {
-            if (array[ss[i] - 'A'] == 1) return i;
+            if (array[ss[i] - 'A'] == 1) {
+                return i;
+            }
         }
         return -1;
     }

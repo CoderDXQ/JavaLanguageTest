@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/12 11:43 下午
  */
+//整数中1出现的次数（从1到n整数中1出现的次数）
 public class JZ31 {
 
     //    抽象出数学计算模型 看不懂可以把下面的sout打开看看

@@ -8,6 +8,7 @@ import java.util.Queue;
  * @version 1.0
  * @date 2021/3/11 11:39 下午
  */
+//机器人的运动范围
 public class JZ66 {
 
     public static int sum = 0;

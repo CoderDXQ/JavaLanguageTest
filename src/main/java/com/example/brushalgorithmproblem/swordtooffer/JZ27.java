@@ -8,6 +8,7 @@ import java.util.TreeSet;
  * @version 1.0
  * @date 2021/3/4 4:25 下午
  */
+//字符串的排列
 public class JZ27 {
 
     //    TreeSet可以自动去重和排序

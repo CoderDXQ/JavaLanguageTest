@@ -8,7 +8,7 @@ import java.util.Collections;
  * @version 1.0
  * @date 2021/3/7 11:55 下午
  */
-
+//把数组排成最小的数
 //字符串排序的比较也有两种方法：一是单个字符串循环进行比较 二是两个字符串分别首尾相接进行比较
 public class JZ32 {
 

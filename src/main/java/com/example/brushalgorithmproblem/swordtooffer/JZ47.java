@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/1/30 1:40 上午
  */
+//求1+2+3+...+n
 public class JZ47 {
 
     public int Sum_Solution(int n) {

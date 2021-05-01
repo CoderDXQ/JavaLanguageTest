@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/4 9:05 下午
  */
+//构建乘积数组
 public class JZ51 {
 
 

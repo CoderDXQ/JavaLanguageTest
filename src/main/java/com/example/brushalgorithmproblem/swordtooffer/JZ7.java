@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2020/12/22 5:35 下午
  */
+//斐波那契数列
 public class JZ7 {
     public static void main(String[] args) {
         JZ7 solution = new JZ7();

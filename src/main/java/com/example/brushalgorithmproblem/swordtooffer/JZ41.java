@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @date 2021/3/11 1:41 上午
  */
+//和为S的连续正数序列
 public class JZ41 {
 
     //    前缀和

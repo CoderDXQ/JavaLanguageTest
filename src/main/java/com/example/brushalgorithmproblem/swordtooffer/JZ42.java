@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @version 1.0
  * @date 2021/3/10 10:34 下午
  */
-
+//和为S的两个数字
 //根据算数规律，两个数的差值越大其积越小，因此找到最外层的答案即可
 public class JZ42 {
 

@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  * @date 2021/2/25 10:00 下午
  */
+//矩形覆盖
 public class JZ10 {
 
     //    多算几个情况发现就是个斐波那契数列  动态规划+滚动数组优化

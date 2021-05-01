@@ -5,7 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/10 7:29 下午
  */
-
+//平衡二叉树
 //平衡树的规定：每个非叶节点的左右子树高度差都不能超过1
 public class JZ39 {
 

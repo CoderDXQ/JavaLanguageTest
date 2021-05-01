@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/1/31 8:44 下午
  */
+//两个链表的第一个公共结点
 public class JZ36 {
 
     public static class ListNode {

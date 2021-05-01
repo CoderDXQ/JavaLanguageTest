@@ -7,6 +7,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/1/30 12:28 上午
  */
+//用两个栈实现队列
 public class JZ5 {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();

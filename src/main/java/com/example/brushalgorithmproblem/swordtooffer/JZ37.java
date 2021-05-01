@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/1/30 1:48 上午
  */
+//数字在排序数组中出现的次数
 public class JZ37 {
 
     //    有问题就细分情况

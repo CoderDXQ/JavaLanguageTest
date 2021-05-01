@@ -7,6 +7,7 @@ import java.util.HashMap;
  * @version 1.0
  * @date 2021/3/11 6:19 下午
  */
+//删除链表中重复的结点
 public class JZ56 {
 
 

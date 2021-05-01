@@ -10,6 +10,7 @@ import java.util.Queue;
  * @version 1.0
  * @date 2020/12/22 11:09 下午
  */
+//从上往下打印二叉树
 public class JZ22 {
 
     private static class TreeNode {

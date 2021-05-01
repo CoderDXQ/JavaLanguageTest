@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/11 2:27 上午
  */
+//把字符串转换成整数
 public class JZ49 {
 
     //直接利用Integer类的构造函数 捕获异常

@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2020/12/13 10:27 下午
  */
+//替换空格
 public class JZ2 {
     public static void main(String[] args) {
         JZ2 solution = new JZ2();

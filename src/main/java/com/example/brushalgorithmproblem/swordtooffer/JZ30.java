@@ -1,12 +1,11 @@
 package com.example.brushalgorithmproblem.swordtooffer;
 
-import sun.nio.cs.ext.MacArabic;
-
 /**
  * @author Duan Xiangqing
  * @version 1.0
  * @date 2021/3/3 10:27 下午
  */
+//连续子数组的最大和
 public class JZ30 {
 
     public static int FindGreatestSumOfSubArray1(int[] array) {

@@ -7,6 +7,7 @@ import java.util.*;
  * @version 1.0
  * @date 2021/3/12 11:51 下午
  */
+//扑克牌顺子
 public class JZ45 {
 
     public static boolean IsContinuous(int[] numbers) {

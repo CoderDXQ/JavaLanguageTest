@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/12 11:44 下午
  */
+//数组中的逆序对
 public class JZ35 {
 
     //    暴力方法 用于验证其他算法结果的准确性和性能比较

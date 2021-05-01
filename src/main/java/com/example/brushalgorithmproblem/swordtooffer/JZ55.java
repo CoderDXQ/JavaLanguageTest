@@ -7,6 +7,7 @@ import java.util.HashSet;
  * @version 1.0
  * @date 2021/3/11 9:04 下午
  */
+//链表中环的入口结点
 public class JZ55 {
 
     //    哈希 第一个重复的节点就是环的入口

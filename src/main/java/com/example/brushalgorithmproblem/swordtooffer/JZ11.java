@@ -5,6 +5,7 @@ package com.example.brushalgorithmproblem.swordtooffer;
  * @version 1.0
  * @date 2021/3/1 7:22 下午
  */
+//二进制中1的个数
 public class JZ11 {
 
     //    右移

@@ -7,6 +7,7 @@ import java.util.Stack;
  * @version 1.0
  * @date 2021/3/2 7:11 下午
  */
+//栈的压入、弹出序列
 public class JZ21 {
 
     //    模拟 以弹出队列为基础顺序
