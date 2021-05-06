@@ -38,17 +38,22 @@ public class lt538 {
         TreeNode node = root;
 
         while (node != null) {
+//            没有后继结点
             if (node.right == null) {
                 sum += node.val;
                 node.val = sum;
                 node = node.left;
             } else {
+//                找到node的后继结点
                 TreeNode succ = getSuccessor(node);
+//                没加过线索
                 if (succ.left == null) {
 //                    加线索
                     succ.left = node;
+//                    继续往右走 目的是继续加线索
                     node = node.right;
                 } else {
+//                    加过线索  解除线索进行计算
                     succ.left = null;
                     sum += node.val;
                     node.val = sum;
@@ -62,6 +67,7 @@ public class lt538 {
 
     //    找到node的后继结点
     private static TreeNode getSuccessor(TreeNode node) {
+//        寻找右子树的最左节点
         TreeNode succ = node.right;
         while (succ.left != null && succ.left != node) {
             succ = succ.left;
