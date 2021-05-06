@@ -39,12 +39,6 @@ public class lt48 {
 
     }
 
-
-    //    实际地转换一下数组 原地旋转  这是一种原地算法 ？？？以后再看
-    public static void rotate1(int[][] matrix) {
-
-    }
-
     //  转化问题的思想 这也是一种原地算法 两次翻转代替旋转  这个旋转图像可以转化为一次水平翻转+一次对角线翻转
     public static void rotate2(int[][] matrix) {
         int n = matrix.length;

@@ -41,7 +41,7 @@ public class JZ29 {
         return list;
     }
 
-    //    手写堆排序  大根堆 ？？？需要再理解一下
+    //    手写堆排序  大根堆
     public static ArrayList<Integer> GetLeastNumbers_Solution1(int[] input, int k) {
         ArrayList<Integer> list = new ArrayList<>();
         if (input == null || input.length == 0 || k > input.length || k == 0)

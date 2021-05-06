@@ -53,7 +53,7 @@ public class lt215 {
 
     }
 
-    //    手写堆排序 ？？？需要再理解一下
+    //    手写堆排序
     public static int findKthLargest1(int[] nums, int k) {
         int heapSize = nums.length;
         buildMaxHeap(nums, heapSize);

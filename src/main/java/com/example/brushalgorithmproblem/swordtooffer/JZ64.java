@@ -40,7 +40,7 @@ public class JZ64 {
                     max = num[i];
                     indexOfMax = i;
                 }
-//                indexOfMax的过期问题？？？
+//                indexOfMax的过期问题要注意
                 if (indexOfMax <= i - size) {
 //                    重选indexOfMax
                     Iterator<Integer> iterator = deque.iterator();
@@ -138,19 +138,6 @@ public class JZ64 {
         }
         return result;
     }
-
-    //    Sparse Table算法  区间最值查询的在线算法 ？？？以后再补充
-    public static ArrayList<Integer> maxInWindows5(int[] num, int size) {
-
-        ArrayList<Integer> result = new ArrayList<>();
-        if (size == 0 || num.length == 0 || size > num.length) {
-            return result;
-        }
-
-
-        return result;
-    }
-
 
     public static void main(String[] args) {
         int[] num = new int[]{16, 14, 12, 10, 8, 6, 4};

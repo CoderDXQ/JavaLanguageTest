@@ -61,7 +61,7 @@ public class lt94 {
         return results;
     }
 
-    //    Morris 莫里斯中序遍历 相比迭代省去了栈的空间复杂度 在树中灵活的加线索可以提高速度和节省内存空间 ？？？需要再理解一下
+    //    Morris 莫里斯中序遍历 相比迭代省去了栈的空间复杂度 在树中灵活的加线索可以提高速度和节省内存空间
     public static List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> result = new LinkedList<>();
         TreeNode pre = null;

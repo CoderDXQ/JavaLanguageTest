@@ -16,7 +16,7 @@ public class t3 {
 
     public static void dfs(int i, int j, int[][] map, int sum, int t) {
 
-//        ???是否有等号？？？
+//        是否有等号
         if (sum > t) {
             return;
         }
@@ -31,7 +31,7 @@ public class t3 {
             }
         }
 
-//        只能向两个方向走  所以不需要回溯？？？
+//        只能向两个方向走  所以不需要回溯
         if (i + 1 < map.length) {
             dfs(i + 1, j, map, sum + map[i + 1][j], t);
         }
