@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 测试DTS的jar包应该放在什么地方
+ * 测试DTS的jar包应该放在什么地方 具体的需要发个post请求测试一下
  */
 public class FindDTSStartPath {
 
