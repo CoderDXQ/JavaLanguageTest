@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  */
 public class FindDTSStartPath {
 
-
+//test
     public static void main(String[] args) throws IOException {
 
 //        linux下的具体用法看DTS源代码
