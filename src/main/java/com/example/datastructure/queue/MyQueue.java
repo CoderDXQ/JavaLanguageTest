@@ -5,7 +5,7 @@ package com.example.datastructure.queue;
  * @version 1.0
  * @date 2021/5/10 11:26 下午
  */
-//使用数组实现队列
+//使用数组实现队列 使用循环避免元素复制
 public class MyQueue<T> {
 
     private int capacity;
