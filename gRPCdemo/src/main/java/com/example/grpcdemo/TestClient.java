@@ -1,5 +1,6 @@
 package com.example.grpcdemo;
 
+
 import com.example.justtest.GreeterGrpc;
 import com.example.justtest.TestRequest;
 import com.example.justtest.TestResponse;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @date 2021/5/12 11:34 下午
  */
+//需要重新编译proto生成代码  然后要在maven里刷新一下父项目
 public class TestClient {
 
     private final ManagedChannel channel;
