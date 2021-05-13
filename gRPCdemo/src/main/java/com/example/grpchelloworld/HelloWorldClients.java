@@ -34,22 +34,24 @@ public class HelloWorldClients {
         this.port = port;
     }
 
+    //    获取通道
     public ManagedChannel getChannel() {
         return ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
     }
 
-    //    同步调用
+    //    同步调用 阻塞
     public void doSync(String name) {
 //        阻塞桩
         Greeter1Grpc.Greeter1BlockingStub blockingStub = Greeter1Grpc.newBlockingStub(getChannel());
 
-        logger.info("Will try to dosync");
+        logger.info("Will try to doSync");
 
         HelloWorld.HelloRequest request = HelloWorld.HelloRequest.newBuilder().setName(name).build();
 
         HelloWorld.HelloReply response;
 
         try {
+//            桩执行rpc调用
             response = blockingStub.sayHello(request);
         } catch (Exception e) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.getMessage());
@@ -69,6 +71,7 @@ public class HelloWorldClients {
 
         HelloWorld.HelloRequest request = HelloWorld.HelloRequest.newBuilder().setName(name).build();
 
+//        桩执行rpc调用
         stub.sayHello(request, new StreamObserver<HelloWorld.HelloReply>() {
             @Override
             public void onNext(HelloWorld.HelloReply value) {
@@ -100,6 +103,7 @@ public class HelloWorldClients {
 
 
         try {
+//            桩执行rpc调用
             ListenableFuture<HelloWorld.HelloReply> future = futureStub.sayHello(request);
             response = future.get();
         } catch (InterruptedException e) {
