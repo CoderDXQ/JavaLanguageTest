@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+//所有proto文件的java_package都要相同
+option java_package = "com.example.justtest";
+option java_outer_classname = "HelloWorld";
+
+// The greeting service definition.
+service Greeter1 {
+
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
