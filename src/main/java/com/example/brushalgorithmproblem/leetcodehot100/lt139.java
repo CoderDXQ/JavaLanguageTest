@@ -18,11 +18,35 @@ public class lt139 {
     //    动态规划
     public static boolean wordBreak(String s, List<String> wordDict) {
 
+        int len = s.length();
+        boolean[] dp = new boolean[len + 1];
 
-        return true;
+//        初始化
+        dp[0] = true;
+
+        for (int i = 0; i <= len; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+//                剪枝
+                if (dp[i] == true) {
+                    break;
+                }
+//                避免重复计算
+                if (dp[j] == false) {
+                    continue;
+                }
+                String suffix = s.substring(j, i);
+                if (wordDict.contains(suffix) && dp[j]) {
+                    dp[i] = true;
+//                    剪枝
+                    break;
+                }
+            }
+        }
+
+        return dp[len];
     }
 
-    //    记忆化回溯 DFS
+    //    记忆化搜索 DFS
     public static boolean wordBreak1(String s, List<String> wordDict) {
 
         int len = s.length();
@@ -57,7 +81,7 @@ public class lt139 {
 
     }
 
-    //    记忆化回溯 BFS
+    //    记忆化搜索 BFS
     public static boolean wordBreak2(String s, List<String> wordDict) {
 
         Queue<Integer> queue = new LinkedList<>();
@@ -68,6 +92,12 @@ public class lt139 {
 
         while (!queue.isEmpty()) {
             Integer start = queue.poll();
+//            标记优化
+            if (mem[start]) {
+                continue;
+            }
+
+            mem[start] = true;
 
             for (int i = start + 1; i <= len; i++) {
                 String prefix = s.substring(start, i);
