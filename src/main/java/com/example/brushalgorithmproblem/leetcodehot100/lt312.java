@@ -10,7 +10,7 @@ import java.util.LinkedList;
 //戳气球
 public class lt312 {
 
-    //    DFS优化 记忆化搜索 逆向思维 分治思想
+    //    DFS优化 记忆化搜索 逆向思维 分治思想,自顶向下再递归回来
     public static int maxCoins(int[] nums) {
 
         if (nums == null || nums.length == 0) {
@@ -23,7 +23,7 @@ public class lt312 {
         int[] arr = new int[n + 2];
 
         for (int i = 1; i <= n; i++) {
-            arr[i] = nums[i];
+            arr[i] = nums[i - 1];
         }
         arr[0] = 1;
         arr[n + 1] = 1;
@@ -66,10 +66,31 @@ public class lt312 {
         return res;
     }
 
-    //   ？？？ 区间动态规划 区间DP
+    //   区间动态规划 区间DP 具体过程可以根据上面的方法理解
+//    自底向上
+//    区间DP就是用二维数组来计算某个区间的最优结果 二维数组元素的下标就是区间的两个端点
     public static int maxCoins1(int[] nums) {
+        int n = nums.length;
+        int[][] rec = new int[n + 2][n + 2];
+        int[] val = new int[n + 2];
 
-        return 0;
+        val[0] = val[n + 1] = 1;
+        for (int i = 1; i <= n; i++) {
+            val[i] = nums[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {//左边界
+            for (int j = i + 2; j <= n + 1; j++) {//右边界
+                for (int k = i + 1; k < j; k++) {
+//                    外层的  后来扎破的气球造成的结果
+                    int sum = val[i] * val[k] * val[j];
+                    sum += rec[i][k] + rec[k][j];
+                    rec[i][j] = Math.max(sum, rec[i][j]);
+                }
+            }
+        }
+
+        return rec[0][n + 1];
     }
 
     //    DFS 删除思维 模拟 时间复杂度是n! 实际上就是全排列问题
