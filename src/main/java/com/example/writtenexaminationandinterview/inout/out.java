@@ -5,6 +5,7 @@ package com.example.writtenexaminationandinterview.inout;
  * @version 1.0
  * @date 2021/4/3 9:19 下午
  */
+//输出格式控制 printf
 public class out {
 
     /**
