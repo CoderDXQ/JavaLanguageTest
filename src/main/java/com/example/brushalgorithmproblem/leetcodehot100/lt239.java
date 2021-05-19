@@ -79,10 +79,43 @@ public class lt239 {
         return ans;
     }
 
-    //  ？？？  分块+预处理 Sparse Table  ST算法 稀疏表法 适用于区间最值查询
+    // 分块+预处理 Sparse Table  ST算法 稀疏表法 适用于区间最值查询
+//    将数组分成大小为k的块，那么每次窗口的查询结果都可以从相邻的一个或者两个块的最大值中得到
+//    需要画图理解一下 https://leetcode-cn.com/problems/sliding-window-maximum/solution/hua-dong-chuang-kou-zui-da-zhi-by-leetco-ki6m/
     public static int[] maxSlidingWindow2(int[] nums, int k) {
 
-        return null;
+        int n = nums.length;
+        int[] prefix = new int[n];
+        int[] suffix = new int[n];
+
+//        预处理
+        for (int i = 0; i < n; i++) {
+            if (i % k == 0) {
+                prefix[i] = nums[i];
+            } else {
+                prefix[i] = Math.max(nums[i], prefix[i - 1]);
+            }
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            if ((i + 1) % k == 0 || i + 1 == n) {
+                suffix[i] = nums[i];
+            } else {
+                suffix[i] = Math.max(nums[i], suffix[i + 1]);
+            }
+        }
+
+//        计算
+        int[] ans = new int[n - k + 1];
+
+        for (int i = 0; i <= n - k; i++) {
+//            滑动窗口的最值只在相邻两块的前缀最大值和后缀最大值之间
+//            后一块的前缀和前一块的后缀 相邻的两块
+            ans[i] = Math.max(prefix[i + k - 1], suffix[i]);
+        }
+
+        return ans;
+
     }
 
     public static void main(String[] args) {
@@ -90,9 +123,20 @@ public class lt239 {
         int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
         int k = 3;
 
-        System.out.println(maxSlidingWindow(nums, k));
-        System.out.println(maxSlidingWindow1(nums, k));
-        System.out.println(maxSlidingWindow2(nums, k));
+        for (int i : maxSlidingWindow(nums, k)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i : maxSlidingWindow1(nums, k)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i : maxSlidingWindow2(nums, k)) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
 
     }
 
