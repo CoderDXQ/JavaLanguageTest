@@ -78,6 +78,7 @@ public class lt128 {
 //        初始化
         map = new HashMap<>();
 
+//        每个key对应的爹就是value
         for (int i : nums) {
             map.put(i, i + 1);
         }
@@ -85,6 +86,7 @@ public class lt128 {
         int ans = 0;
 
         for (int i : nums) {
+//            找到底之后就是连续序列的右边最大的值
             int y = find(i + 1);
             ans = Math.max(ans, y - i);
         }
@@ -94,6 +96,7 @@ public class lt128 {
 
     public static Integer find(int x) {
 //        return map.containsKey(x) ? map.put(x, find(map.get(x))) : x;
+//        存在就接着往下找爹
         return map.containsKey(x) ? find(map.get(x)) : x;
 
     }
