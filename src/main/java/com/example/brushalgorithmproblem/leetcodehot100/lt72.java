@@ -9,7 +9,7 @@ import java.util.Arrays;
 //编辑距离  编辑距离是一类问题
 public class lt72 {
 
-    //    记忆化搜索 从上到下进行搜索
+    //    记忆化搜索 从上往下搜索
     public static int minDistance(String word1, String word2) {
 
         int n = word1.length();
@@ -31,6 +31,7 @@ public class lt72 {
         return dfs(word1, 0, word2, 0, mem);
     }
 
+    //    先从左递归到右 再从右返回左得到最后结果
     public static int dfs(String word1, int i, String word2, int j, int[][] mem) {
 
 //        加速 对于已经存在的结果直接返回 避免重复计算
@@ -38,10 +39,12 @@ public class lt72 {
             return mem[i][j];
         }
 
+//        直接更新
         if (i == word1.length()) {
             return mem[i][j] = word2.length() - j;
         }
 
+//        直接更新
         if (j == word2.length()) {
             return mem[i][j] = word1.length() - i;
         }
@@ -94,11 +97,47 @@ public class lt72 {
         return dp[n][m];
     }
 
-    //    动态规划 状态压缩优化
+    //    动态规划 状态压缩优化 思路延续上面的方法
     public static int minDistance2(String word1, String word2) {
 
+        int n = word1.length();
+        int m = word2.length();
 
-        return 0;
+//        特判
+        if (m == 0 || n == 0) {//m*n==0
+            return n + m;
+        }
+
+        int[] dp = new int[m + 1];
+
+//        初始化原来的二维数组的第一行
+        for (int j = 1; j <= m; j++) {
+            dp[j] = dp[j - 1] + 1;
+        }
+
+        for (int i = 1; i <= n; i++) {
+//            记录原来二维数组左上的值
+            int pre = dp[0];
+
+//            初始化
+            dp[0] = i;
+
+            for (int j = 1; j <= m; j++) {
+
+//                保存当前的值 防止覆盖  这个值是下次循环的左上的值
+                int cur = dp[j];
+
+                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[j] = pre;
+                } else {
+//                    pre是左上 dp[j-1]是左 dp[j]是上
+                    dp[j] = Math.min(pre, Math.min(dp[j - 1], dp[j])) + 1;
+                }
+//                pre存放的是原来二维数组左上的值
+                pre = cur;
+            }
+        }
+        return dp[m];
     }
 
 
