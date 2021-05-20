@@ -106,6 +106,27 @@ public class Tips {
 
     }
 
+    /**
+     * 数字转换为字符串的技巧
+     * 字符转换为字符串的技巧
+     */
+    @Test
+    public void test04() {
+        Integer i = 1;
+        char c = '1';
+
+//        false
+        System.out.println("1".equals(i));
+//        true
+        System.out.println("1".equals(i + ""));
+        System.out.println();
+//        false
+        System.out.println("1".equals(c));
+//        true
+        System.out.println("1".equals(c + ""));
+
+
+    }
 
     /**
      * 下一个排列
