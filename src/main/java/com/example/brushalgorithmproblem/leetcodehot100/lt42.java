@@ -1,5 +1,8 @@
 package com.example.brushalgorithmproblem.leetcodehot100;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @author Duan Xiangqing
  * @version 1.0
@@ -11,22 +14,83 @@ public class lt42 {
     //    动态规划
     public static int trap(int[] height) {
 
-        return 0;
+        int n = height.length;
+
+        if (n == 0) {
+            return 0;
+        }
+
+//        计算单调数组
+        int[] leftMax = new int[n];
+        leftMax[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+        }
+
+        int[] rightMax = new int[n];
+        rightMax[n - 1] = height[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], height[i]);
+        }
+
+//        计算
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            ans += Math.min(leftMax[i], rightMax[i]) - height[i];
+        }
+
+        return ans;
     }
 
     //    单调栈
     public static int trap1(int[] height) {
+        int ans = 0;
+        Deque<Integer> stack = new LinkedList<>();
+        int n = height.length;
+        for (int i = 0; i < n; i++) {
 
-        return 0;
+            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
+                int top = stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int left = stack.peek();
+                int curWidth = i - left - 1;
+//                height[left],height[top],height[i]形成一个坑或者坑的局部
+//                每次都添加一小块
+                int curHeight = Math.min(height[left], height[i]) - height[top];
+                ans += curHeight * curWidth;
+            }
+            stack.push(i);
+        }
+        return ans;
     }
 
-    //    双指针
+    //    双指针 这里用的规律需要推导一下
     public static int trap2(int[] height) {
+        int ans = 0;
+        int left = 0, right = height.length - 1;
+        int leftMax = 0, rightMax = 0;
 
-        return 0;
+        while (left < right) {
+            leftMax = Math.max(leftMax, height[left]);
+            rightMax = Math.max(rightMax, height[right]);
+
+            if (height[left] < height[right]) {
+//                此时 leftMax<rightMax
+                ans += leftMax - height[left];
+                left++;
+            } else {
+//                此时 leftMax>=rightMax
+                ans += rightMax - height[right];
+                right--;
+            }
+        }
+        return ans;
     }
 
-    //    按高度走 按行求
+    //    按高度走 按行求 超时
     public static int trap3(int[] height) {
 
         int ans = 0;
@@ -92,7 +156,7 @@ public class lt42 {
             }
 
 //            每次只加上当前的水柱
-            ans += Math.max(maxLeft, maxRight) - height[i];
+            ans += Math.min(maxLeft, maxRight) - height[i];
 
         }
 
