@@ -1,4 +1,4 @@
-package com.example.script.JarTest;
+package com.example.script;
 
 /**
  * @author Duan Xiangqing

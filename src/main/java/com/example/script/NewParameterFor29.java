@@ -1,6 +1,8 @@
-package com.example.script.JarTest;
+package com.example.script;
 
-public class NewParameter {
+import com.example.script.NewArgs;
+
+public class NewParameterFor29 {
 
 
 //    test case:
