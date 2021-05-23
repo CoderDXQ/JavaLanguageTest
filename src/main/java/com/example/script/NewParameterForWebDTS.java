@@ -39,7 +39,17 @@ public class NewParameterForWebDTS {
         }
 
         for (String st : args) {
-            if (st.startsWith("-ResultPath:")) {//必要但是设置默认值                     0
+            if (st.startsWith("-TestProject:")) {//必要且没有默认值                8
+
+                int start = st.indexOf(':');
+                int end = st.length();
+                if (start == -1) {
+                    //从后台拿到
+                } else {
+                    NewArgs.setArgs8(st.substring(start, end));
+                }
+
+            } else if (st.startsWith("-ResultPath:")) {//必要但是设置默认值                     0
                 int start = st.indexOf(':');
                 int end = st.length();
                 //???默认值
