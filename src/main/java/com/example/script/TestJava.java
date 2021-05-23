@@ -1,5 +1,5 @@
 //不能有package
-//package com.example.script;
+package com.example.script;
 
 /**
  * @author Duan Xiangqing
