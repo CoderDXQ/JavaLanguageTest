@@ -4,6 +4,7 @@ package com.example.writtenexaminationandinterview.orderofclassload;
  * @author duanxiangqing
  * @date 2021/5/25
  */
+//https://zhuanlan.zhihu.com/p/148431923
 public class OrderOfClassLoad {
 
     public OrderOfClassLoad() {
