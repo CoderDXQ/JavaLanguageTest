@@ -14,6 +14,10 @@ public class OrderOfClassLoad {
         System.out.println("执行静态代码块，会在主方法之前执行");
     }
 
+    {
+        System.out.println("成员方法非静态，在构造方法之前执行");
+    }
+
 
     public static void main(String[] args) {
 
