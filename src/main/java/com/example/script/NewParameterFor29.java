@@ -68,7 +68,7 @@ public class NewParameterFor29 {
                     NewArgs.setArgs3(st.substring(start, end));
                 }
 
-            } else if (st.startsWith("-DefectMode:")) {//必要  默认值1111
+            } else if (st.startsWith("-DefectMode:")) {//必要  默认值1111                 4
 
                 int start = st.indexOf(':');
                 int end = st.length();

@@ -20,7 +20,7 @@ public class NewParameterForWebDTS {
 
     /**
      * Linux上单机版的DTS与WebDTS的一些默认值的配置是不同的
-     *
+     * 许多值需要从后台传过来
      * @param args
      */
     public static void main(String[] args) {
