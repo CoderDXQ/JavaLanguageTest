@@ -41,11 +41,12 @@ public class Test {
         final Car car = Car.create(Car::new);
         final List<Car> cars = Arrays.asList(car);
 
+//        静态类的实例都是同一个
         cars.forEach(Car::collide);
 
         cars.forEach(Car::repair);
 
-        final  Car police=Car.create(Car::new);
+        final Car police = Car.create(Car::new);
         cars.forEach(police::follow);
 
     }

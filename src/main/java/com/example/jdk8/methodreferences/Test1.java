@@ -20,6 +20,7 @@ public class Test1 {
         names.add("Baidu");
         names.add("Sina");
 
+//        调用方法
         names.forEach(System.out::println);
 
 
