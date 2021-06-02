@@ -19,9 +19,9 @@ public class test {
 
     public static void main(String[] args) {
 
-        Scanner in=new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        String json=in.nextLine();
+        String json = in.nextLine();
 
         JsonParser parser = new JsonParser();
 
@@ -52,9 +52,7 @@ public class test {
 
         userIds.forEach(System.out::println);
 
-
         System.out.println();
-
 
     }
 
