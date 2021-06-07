@@ -1,4 +1,4 @@
-package com.example.jdk8.lambda;
+package com.example.jdk8.lambda.scope;
 
 import com.example.jdk8.functioninterface.converter.Converter;
 
@@ -11,7 +11,7 @@ import com.example.jdk8.functioninterface.converter.Converter;
 public class LambdaScopes {
 
     public static void main(String[] args) {
-//        这里有隐藏的final修饰
+//        这里的局部变量有隐藏的final修饰
         int num = 1;
 //        from是Integer to是String
         Converter<Integer, String> stringConverter = from -> String.valueOf(from
