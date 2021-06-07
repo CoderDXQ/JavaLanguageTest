@@ -57,41 +57,28 @@ public class lt85 {
         int n = matrix[0].length;
         int[][] deal = new int[m][n];
 
-//        初始化
+//       初始化 计算高度
         for (int i = 0; i < m; i++) {
-            if (matrix[0][i] == '1') {
-                deal[0][i] = 1;
-            }
-        }
-
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == '1') {
-                    deal[i][j] = deal[i - 1][j] + 1;
+                    deal[i][j] = (i == 0 ? 0 : deal[i - 1][j]) + 1;
                 }
             }
         }
-
-//        替换
-//        ？？？
-//        for (int i = 1; i < n; i++) {
-//            for (int j = 0; j < m; j++) {
-//                if (matrix[i][j] == '1') {
-//                    deal[i][j] = (i == 0 ? 0 : deal[i - 1][j]) + 1;
-//                }
-//            }
-//        }
 
         int ans = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
 //                剪枝
-                if (deal[i][j] * m <= ans) {
+                if (deal[i][j] * n <= ans) {
                     continue;
                 }
                 if (deal[i][j] != 0) {
                     int cnt = 1;
+
+//                    寻找最大宽度
                     for (int k = j + 1; k < n; k++) {
+//                        剪枝
                         if (deal[i][k] < deal[i][j]) {
                             break;
                         }
@@ -103,6 +90,7 @@ public class lt85 {
                         }
                         cnt++;
                     }
+
                     ans = Math.max(ans, cnt * deal[i][j]);
                 }
             }
