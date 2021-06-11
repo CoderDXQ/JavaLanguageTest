@@ -109,9 +109,33 @@ public class lt399 {
         return null;
     }
 
-    //    Floyd算法
+    //    Floyd算法 本质是三重循环
     public static double[] calcEquation2(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int nvars = 0;
+//        记录节点与其对应的序号
+        Map<String, Integer> variables = new HashMap<>();
+//        初始化variables
+        int n = equations.size();
+        for (int i = 0; i < n; i++) {
+            if (!variables.containsKey(equations.get(i).get(0))) {
+                variables.put(equations.get(i).get(0), nvars++);
+            }
+            if (!variables.containsKey(equations.get(i).get(1))) {
+                variables.put(equations.get(i).get(1), nvars++);
+            }
+        }
 
+        double[][] graph = new double[nvars][nvars];
+        for (int i = 0; i < nvars; i++) {
+            Arrays.fill(graph[i], -1.0);
+        }
+
+        for (int i = 0; i < n; i++) {
+            int start = variables.get(equations.get(i).get(0));
+            int end = variables.get(equations.get(i).get(1));
+            graph[start][end] = values[i];
+            graph[end][start] = 1.0 / values[i];
+        }
 
         return null;
     }
