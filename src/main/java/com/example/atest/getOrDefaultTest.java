@@ -13,10 +13,11 @@ public class getOrDefaultTest {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < 3; i++) {
-//            这个方法会以默认值put空值
+//            这个方法不会以默认值put空值
             System.out.println(map.getOrDefault(i, i));
         }
 
+        System.out.println("输出map的值：");
         map.forEach((key, value) -> {
             System.out.println(key + " " + value);
         });
