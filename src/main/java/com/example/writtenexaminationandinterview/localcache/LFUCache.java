@@ -127,7 +127,7 @@ public class LFUCache<K, V> {
                 long timeoutTime = TimeUnit.NANOSECONDS.toSeconds(System.nanoTime() - cache.getWriteTime());
                 System.out.println(timeoutTime);
                 if (cache.getExpireTime() > timeoutTime) {
-                    return;
+                    continue;
                 }
 //                清理缓存
                 System.out.println("清除过期缓存 : " + key);

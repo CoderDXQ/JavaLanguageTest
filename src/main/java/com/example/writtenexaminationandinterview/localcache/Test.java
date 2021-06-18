@@ -32,6 +32,7 @@ public class Test {
         for (int i = 0; i < 4; i++) {
             System.out.println(localCache1.get("key" + i));
         }
+        System.out.println();
 
         LRUCache lruCache = new LRUCache(5);
         for (int i = 0; i < 5; i++) {
