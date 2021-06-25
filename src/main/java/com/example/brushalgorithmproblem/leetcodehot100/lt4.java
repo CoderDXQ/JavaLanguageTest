@@ -8,10 +8,43 @@ package com.example.brushalgorithmproblem.leetcodehot100;
 //寻找两个正序数组的中位数
 public class lt4 {
 
-    //    二分查找
+    //    二分查找变形
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+        int left = (n + m + 1) / 2;
+        int right = (n + m + 2) / 2;
 
-        return 0;
+        return (getKth(nums1, 0, n - 1, nums2, 0, m - 1, left) + getKth(nums1, 0, n - 1, nums2, 0, m - 1, right)) * 0.5;
+    }
+
+    private static double getKth(int[] nums1, int start1, int end1, int[] nums2, int start2, int end2, int k) {
+
+//        剩余的两个计算中数组的长度
+        int len1 = end1 - start1 + 1;
+        int len2 = end2 - start2 + 1;
+
+//        保持len1始终是长度短的那一个
+        if (len1 > len2) {
+            return getKth(nums2, start2, end2, nums1, start1, end1, k);
+        }
+//        剪枝
+        if (len1 == 0) {
+            return nums2[start2 + k - 1];
+        }
+
+//        被比较的下标
+        int i = start1 + Math.min(len1, k / 2) - 1;
+        int j = start2 + Math.min(len2, k / 2) - 1;
+
+        if (nums1[i] > nums2[j]) {
+//            截取nums2
+            return getKth(nums1, start1, end1, nums2, j + 1, end2, k - (j - start2 + 1));
+        } else {
+//            截取nums1
+            return getKth(nums1, i + 1, end1, nums2, start2, end2, k - (i - start1 + 1));
+        }
+
     }
 
 
