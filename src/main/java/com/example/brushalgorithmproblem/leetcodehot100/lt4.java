@@ -12,10 +12,16 @@ public class lt4 {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int n = nums1.length;
         int m = nums2.length;
-        int left = (n + m + 1) / 2;
-        int right = (n + m + 2) / 2;
+        int len = n + m;
+        int left = (len + 1) / 2;
+        int right = (len + 2) / 2;
 
-        return (getKth(nums1, 0, n - 1, nums2, 0, m - 1, left) + getKth(nums1, 0, n - 1, nums2, 0, m - 1, right)) * 0.5;
+//        len为奇数时 只需要计算一个结果即可
+        if ((len & 1) == 1) {
+            return getKth(nums1, 0, n - 1, nums2, 0, m - 1, left);
+        } else {
+            return (getKth(nums1, 0, n - 1, nums2, 0, m - 1, left) + getKth(nums1, 0, n - 1, nums2, 0, m - 1, right)) * 0.5;
+        }
     }
 
     private static double getKth(int[] nums1, int start1, int end1, int[] nums2, int start2, int end2, int k) {
@@ -32,6 +38,9 @@ public class lt4 {
         if (len1 == 0) {
             return nums2[start2 + k - 1];
         }
+        if (k == 1) {
+            return Math.min(nums1[start1], nums2[start2]);
+        }
 
 //        被比较的下标
         int i = start1 + Math.min(len1, k / 2) - 1;
@@ -46,7 +55,6 @@ public class lt4 {
         }
 
     }
-
 
     //    暴力
     public static double findMedianSortedArrays1(int[] nums1, int[] nums2) {
@@ -97,10 +105,55 @@ public class lt4 {
         }
     }
 
-    //    划分数组
+    //    划分数组 划分之后进行二分查找
     public static double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+//        确保m是比较少的那个数
+        if (m > n) {
+            return findMedianSortedArrays2(nums2, nums1);
+        }
+        int min = 0, max = m;
+        while (min < max) {
+            int i = (min + max) >> 1;
+            int j = ((m + n + 1) >> 1) - i;
+//            二分查找
+            if (j != 0 && i != m && nums2[j - 1] > nums1[i]) {
+                //nums1下标+1 nums2中当前的下标的数值大于nums1下一个下标的数值
+                min = i + 1;
+            } else if (i != 0 && j != n && nums1[i - 1] > nums2[j]) {
+                //nums1下标+1 nums2中当前的下标的数值大于nums1下一个下标的数值
+                max = i - 1;
+            } else {
+//                i,j有其一到达了左右边界之一 或者 nums2[j - 1] <= nums1[i]&&nums1[i - 1] <= nums2[j]即划分出来左侧两段的最大值小于右侧两段的最小值
+                int maxLeft = 0;
+                if (i == 0) {
+                    maxLeft = nums2[j - 1];
+                } else if (j == 0) {
+                    maxLeft = nums1[i - 1];
+                } else {
+//                    左侧的值 选大的
+                    maxLeft = Math.max(nums1[i - 1], nums2[j - 1]);
+                }
+//                如果是奇数则不需要计算右值
+                if (((m + n) & 1) == 1) {
+                    return maxLeft;
+                }
 
-        return 0;
+                int minRight = 0;
+                if (i == m) {
+                    minRight = nums2[j];
+                } else if (j == n) {
+                    minRight = nums1[i];
+                } else {
+//                    右侧的值选小的
+                    minRight = Math.min(nums2[j], nums1[i]);
+                }
+
+                return (maxLeft + minRight) / 2.0;
+            }
+        }
+        return 0.0;
     }
 
     //    利用中位数的定义
@@ -188,6 +241,11 @@ public class lt4 {
         }
     }
 
+    //    动态规划
+    public static double findMedianSortedArrays6(int[] nums1, int[] nums2) {
+
+        return 0;
+    }
 
     public static void main(String[] args) {
 
@@ -255,6 +313,13 @@ public class lt4 {
 
         System.out.println();
 
+        System.out.println(findMedianSortedArrays6(nums1, nums2));
+        System.out.println(findMedianSortedArrays6(nums3, nums4));
+        System.out.println(findMedianSortedArrays6(nums5, nums6));
+        System.out.println(findMedianSortedArrays6(nums7, nums8));
+        System.out.println(findMedianSortedArrays6(nums9, nums10));
+
+        System.out.println();
 
     }
 
