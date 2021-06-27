@@ -114,6 +114,7 @@ public class lt4 {
             return findMedianSortedArrays2(nums2, nums1);
         }
         int min = 0, max = m;
+//        使用min和max来控制二分的进行
         while (min < max) {
             int i = (min + max) >> 1;
             int j = ((m + n + 1) >> 1) - i;
@@ -154,12 +155,6 @@ public class lt4 {
             }
         }
         return 0.0;
-    }
-
-    //    利用中位数的定义
-    public static double findMedianSortedArrays3(int[] nums1, int[] nums2) {
-
-        return 0;
     }
 
     //    暴力方法优化
@@ -241,8 +236,21 @@ public class lt4 {
         }
     }
 
+    //    直接进行二分查找
+    public static double findMedianSortedArrays3(int[] nums1, int[] nums2) {
+
+        return 0;
+    }
+
+
     //    动态规划
     public static double findMedianSortedArrays6(int[] nums1, int[] nums2) {
+
+        return 0;
+    }
+
+    //    划分数组优化
+    public static double findMedianSortedArrays7(int[] nums1, int[] nums2) {
 
         return 0;
     }
@@ -318,6 +326,14 @@ public class lt4 {
         System.out.println(findMedianSortedArrays6(nums5, nums6));
         System.out.println(findMedianSortedArrays6(nums7, nums8));
         System.out.println(findMedianSortedArrays6(nums9, nums10));
+
+        System.out.println();
+
+        System.out.println(findMedianSortedArrays7(nums1, nums2));
+        System.out.println(findMedianSortedArrays7(nums3, nums4));
+        System.out.println(findMedianSortedArrays7(nums5, nums6));
+        System.out.println(findMedianSortedArrays7(nums7, nums8));
+        System.out.println(findMedianSortedArrays7(nums9, nums10));
 
         System.out.println();
 
