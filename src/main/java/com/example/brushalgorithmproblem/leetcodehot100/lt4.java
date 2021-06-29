@@ -8,7 +8,7 @@ package com.example.brushalgorithmproblem.leetcodehot100;
 //寻找两个正序数组的中位数
 public class lt4 {
 
-    //    二分查找变形
+    //    二分查找变形 递归实现
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int n = nums1.length;
         int m = nums2.length;
@@ -236,14 +236,52 @@ public class lt4 {
         }
     }
 
-    //    直接进行二分查找
+    //    直接进行二分查找 非递归实现
     public static double findMedianSortedArrays3(int[] nums1, int[] nums2) {
+        int len1 = nums1.length, len2 = nums2.length;
+        int totallen = len1 + len2;
+        if ((totallen & 1) == 1) {
+            int mid = totallen >> 1;
+            return getKthEle(nums1, nums2, mid);
+        } else {
+            int right = totallen >> 1, left = right - 1;
+            return (getKthEle(nums1, nums2, left) + getKthEle(nums1, nums2, right)) * 0.5;
+        }
+    }
 
-        return 0;
+    //    ???可能需要再调试
+    private static double getKthEle(int[] nums1, int[] nums2, int k) {
+        int len1 = nums1.length, len2 = nums2.length;
+        int index1 = 0, index2 = 0;
+        int kthEle = 0;
+        while (true) {
+            if (index1 == len1) {
+                return nums2[index2 + k];
+            }
+            if (index2 == len2) {
+                return nums1[index1 + k];
+            }
+            if (k == 0) {
+                return Math.min(nums1[index1], nums2[index2]);
+            }
+
+            int half = k >> 1;
+            int newIndex1 = Math.min(index1 + half, len1);
+            int newIndex2 = Math.min(index2 + half, len2);
+            int pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];
+//            ???k的表达式是否需要调整一下
+            if (pivot1 <= pivot2) {
+                k -= (newIndex1 - index1 + 1);
+                index1 = newIndex1 + 1;
+            } else {
+                k -= (newIndex2 - index2 + 1);
+                index2 = newIndex2 + 1;
+            }
+        }
     }
 
 
-    //    动态规划
+    //    动态规划 记忆数组
     public static double findMedianSortedArrays6(int[] nums1, int[] nums2) {
 
         return 0;
