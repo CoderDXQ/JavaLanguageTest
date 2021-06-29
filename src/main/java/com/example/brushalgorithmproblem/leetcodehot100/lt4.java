@@ -271,26 +271,50 @@ public class lt4 {
             int pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];
 //            ???k的表达式是否需要调整一下
             if (pivot1 <= pivot2) {
-                k -= (newIndex1 - index1 + 1);
-                index1 = newIndex1 + 1;
+                k -= (newIndex1 - index1);
+                index1 = newIndex1;
             } else {
-                k -= (newIndex2 - index2 + 1);
-                index2 = newIndex2 + 1;
+                k -= (newIndex2 - index2);
+                index2 = newIndex2;
             }
         }
     }
 
-
-    //    动态规划 记忆数组
+    //    动态规划 记忆数组 直接计算所有可能的中位的情况然后直接校验是否满足中位条件
     public static double findMedianSortedArrays6(int[] nums1, int[] nums2) {
 
         return 0;
     }
 
-    //    划分数组优化
+    //    划分数组优化+二分查找
     public static double findMedianSortedArrays7(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return findMedianSortedArrays7(nums2, nums1);
+        }
 
-        return 0;
+        int m = nums1.length, n = nums2.length;
+        ;
+        int left = 0, right = m;
+        int left_max = 0, right_min = 0;
+
+        while (left <= right) {
+            int i = (left + right) >> 1;
+            int j = ((m + n + 1) >> 1) - i;
+
+            int nums_im1 = (i == 0 ? Integer.MIN_VALUE : nums1[i - 1]);
+            int nums_i = (i == m ? Integer.MAX_VALUE : nums1[i]);
+            int nums_jm1 = (j == 0 ? Integer.MIN_VALUE : nums2[j - 1]);
+            int nums_j = (j == n ? Integer.MAX_VALUE : nums2[j]);
+
+            if (nums_im1 <= nums_j) {
+                left_max = Math.max(nums_im1, nums_jm1);
+                right_min = Math.min(nums_i, nums_j);
+                left = i + 1;
+            } else {
+                right = i - 1;
+            }
+        }
+        return ((m + n) & 1) == 0 ? (left_max + right_min) * 0.5 : left_max;
     }
 
     public static void main(String[] args) {
