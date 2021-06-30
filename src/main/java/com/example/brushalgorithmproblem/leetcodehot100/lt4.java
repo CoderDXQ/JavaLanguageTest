@@ -293,7 +293,6 @@ public class lt4 {
         }
 
         int m = nums1.length, n = nums2.length;
-        ;
         int left = 0, right = m;
         int left_max = 0, right_min = 0;
 
