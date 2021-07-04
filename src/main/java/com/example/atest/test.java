@@ -15,7 +15,6 @@ public class test {
 //        int a = Integer.parseInt(str);
 //        a--;
 //        System.out.println(a);
-
         HashMap<Integer,Integer> hashMap=new HashMap<>();
 
         hashMap.put(1,1);
