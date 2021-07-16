@@ -5,7 +5,7 @@ package com.example.designpatterns.businessdelegate;
  * @version 1.0
  * @date 2021/7/16 9:30 下午
  */
-//业务代表
+//业务代表 根据不同的Type可以获得不同的服务提供者 这样设计方便扩展服务提供者的种类
 public class BusinessDelegate {
     private BusinessLookUp lookUp = new BusinessLookUp();
     private BusinessService businessService;
